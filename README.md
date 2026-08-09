@@ -190,9 +190,15 @@ code .
 
 ## Links
 
-- **Figma / design link:** *add link here*
-- **Project Board:** *add link here*
 - **Full project brief:** `docs/Client Brief`
+
+### Project Boards
+
+- [Chad's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/1)
+- [Modise's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/2)
+- [Brian's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/3)
+
+> Double-check these link to the right board — open each one on GitHub and confirm the number in the URL matches before committing.
 
 ---
 
