@@ -1,0 +1,26 @@
+{
+  "name": "javascript-project-2026",
+  "version": "1.0.0",
+  "description": "A JavaScript + Firebase learner support portal for managing tasks, bookings, and progress tracking — built as a team project for the NSSA JavaScript Programmer Skills Programme (SP-220373).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChadT2025/Javascript-project-2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ChadT2025/Javascript-project-2026/issues"
+  },
+  "homepage": "https://github.com/ChadT2025/Javascript-project-2026#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "globals": "^17.9.0"
+  }
+}
