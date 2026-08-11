@@ -170,7 +170,7 @@ code .
 
 ## How to Run the Project
 
-- Open `index.html` in a browser (e.g. via the VS Code **Live Server** extension), **or**
+- Open `index.html` in a/your browser (e.g. via the VS Code **Live Server** extension), **or**
 - Serve it locally with any static server of your choice.
 - Make sure your Firebase project keys are set up locally — **do not commit them** (see [Security Note](#security-note) below).
 
@@ -191,6 +191,10 @@ code .
 ## Links
 
 - **Full project brief:** `docs/Client Brief`
+
+### Figma Link
+
+https://www.figma.com/make/jeM3MYwB52qW55eoLwU0Hn/wire-frame-design?t=StEgwdxRuOLGpqR9-1
 
 ### Project Boards
 
