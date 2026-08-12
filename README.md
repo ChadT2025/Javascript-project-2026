@@ -170,7 +170,7 @@ code .
 
 ## How to Run the Project
 
-- Open `index.html` in the browser (e.g. via the VS Code **Live Server** extension), **or**
+- Open `index.html` in  the browser (e.g. via the VS Code **Live Server** extension), **or**
 - Serve it locally with any static server of your choice.
 - Make sure your Firebase project keys are set up locally — **do not commit them** (see [Security Note](#security-note) below).
 
