@@ -46,15 +46,15 @@ Build a Learner Support Portal that:
 
 ## Technologies
 
-| Area | Technology |
-|---|---|
-| Core development | HTML5, CSS3, JavaScript (ES6+) |
-| Database | Firebase Realtime Database |
-| Authentication | Firebase Authentication |
-| REST communication | Firebase REST API (GET, POST, PUT/PATCH, DELETE) |
-| Framework / library | *Add once approved by assessor — e.g. for the mini-game* |
-| Version control | Git & GitHub |
-| CI | GitHub Actions (basic lint/test check) |
+| Area                | Technology                                               |
+| ------------------- | -------------------------------------------------------- |
+| Core development    | HTML5, CSS3, JavaScript (ES6+)                           |
+| Database            | Firebase Realtime Database                               |
+| Authentication      | Firebase Authentication                                  |
+| REST communication  | Firebase REST API (GET, POST, PUT/PATCH, DELETE)         |
+| Framework / library | _Add once approved by assessor — e.g. for the mini-game_ |
+| Version control     | Git & GitHub                                             |
+| CI                  | GitHub Actions (basic lint/test check)                   |
 
 ### Development Tools
 
@@ -67,11 +67,11 @@ Build a Learner Support Portal that:
 
 ## Team Members & Responsibilities
 
-| Member | Focus Area | Responsible For |
-|---|---|---|
-| **Brian** | Planning & Testing | Flowcharts, programming life-cycle plan, testing/debugging log (3+ logged bugs) |
-| **Modise** | Logic & OOP | Class design, pseudocode, core JS logic — functions, arrays/loops/conditionals, map/filter/reduce |
-| **Chad** | UI & GitHub | Wireframes, DOM & events, environment setup, GitHub repo & collaboration setup, final polish & review |
+| Member     | Focus Area         | Responsible For                                                                                       |
+| ---------- | ------------------ | ----------------------------------------------------------------------------------------------------- |
+| **Brian**  | Planning & Testing | Flowcharts, programming life-cycle plan, testing/debugging log (3+ logged bugs)                       |
+| **Modise** | Logic & OOP        | Class design, pseudocode, core JS logic — functions, arrays/loops/conditionals, map/filter/reduce     |
+| **Chad**   | UI & GitHub        | Wireframes, DOM & events, environment setup, GitHub repo & collaboration setup, final polish & review |
 
 > **Shared responsibility:** GitHub collaboration (branches, pull requests, commit history) needs regular contributions from all three members — commit early and often, not one big dump at the end. Code style/formatting and each person's debugging notes belong to whoever writes that section of code.
 
@@ -118,11 +118,13 @@ feature/<name>-<short-description>
 ```
 
 Examples:
+
 - `feature/brian-testing-plan`
 - `feature/modise-oop-logic`
 - `feature/chad-github-ui`
 
 **Workflow:**
+
 1. Open a Pull Request to merge into `main`.
 2. At least one team member must review the PR before it's merged.
 3. Resolve merge conflicts as a team, and record how each conflict was handled (this is assessed).
@@ -178,13 +180,13 @@ code .
 
 ## Project Milestones
 
-| Milestone | Target Date |
-|---|---|
-| Planning docs done (flowchart, class design, wireframe) | Fri, 7 Aug 2026 |
-| Core features built off the plans | Mon 10 – Wed 12 Aug 2026 |
-| Polish (cookies, dialogs, print) + assessor review booked | Thu, 13 Aug 2026 |
-| Final review, cleanup & Month 1 submission | Fri, 14 Aug 2026 |
-| Month 2: Auth, Firebase CRUD, OOP, game, final integration | See project brief |
+| Milestone                                                  | Target Date              |
+| ---------------------------------------------------------- | ------------------------ |
+| Planning docs done (flowchart, class design, wireframe)    | Fri, 7 Aug 2026          |
+| Core features built off the plans                          | Mon 10 – Wed 12 Aug 2026 |
+| Polish (cookies, dialogs, print) + assessor review booked  | Thu, 13 Aug 2026         |
+| Final review, cleanup & Month 1 submission                 | Fri, 14 Aug 2026         |
+| Month 2: Auth, Firebase CRUD, OOP, game, final integration | See project brief        |
 
 ---
 
@@ -235,16 +237,19 @@ This section serves as our week-by-week log of work completed by each team membe
 <summary><strong>Week 1</strong></summary>
 
 **Chad**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Modise**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Brian**
+
 - What I worked on:
 - Blockers:
 - Next steps:
@@ -255,16 +260,19 @@ This section serves as our week-by-week log of work completed by each team membe
 <summary><strong>Week 2</strong></summary>
 
 **Chad**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Modise**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Brian**
+
 - What I worked on:
 - Blockers:
 - Next steps:
@@ -275,16 +283,19 @@ This section serves as our week-by-week log of work completed by each team membe
 <summary><strong>Week 3</strong></summary>
 
 **Chad**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Modise**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Brian**
+
 - What I worked on:
 - Blockers:
 - Next steps:
@@ -295,16 +306,19 @@ This section serves as our week-by-week log of work completed by each team membe
 <summary><strong>Week 4</strong></summary>
 
 **Chad**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Modise**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Brian**
+
 - What I worked on:
 - Blockers:
 - Next steps:
@@ -315,16 +329,19 @@ This section serves as our week-by-week log of work completed by each team membe
 <summary><strong>Week 5</strong></summary>
 
 **Chad**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Modise**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Brian**
+
 - What I worked on:
 - Blockers:
 - Next steps:
@@ -335,16 +352,19 @@ This section serves as our week-by-week log of work completed by each team membe
 <summary><strong>Week 6</strong></summary>
 
 **Chad**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Modise**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Brian**
+
 - What I worked on:
 - Blockers:
 - Next steps:
@@ -355,16 +375,19 @@ This section serves as our week-by-week log of work completed by each team membe
 <summary><strong>Week 7</strong></summary>
 
 **Chad**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Modise**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Brian**
+
 - What I worked on:
 - Blockers:
 - Next steps:
@@ -375,16 +398,19 @@ This section serves as our week-by-week log of work completed by each team membe
 <summary><strong>Week 8</strong></summary>
 
 **Chad**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Modise**
+
 - What I worked on:
 - Blockers:
 - Next steps:
 
 **Brian**
+
 - What I worked on:
 - Blockers:
 - Next steps:
