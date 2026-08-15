@@ -200,9 +200,9 @@ https://www.figma.com/make/jeM3MYwB52qW55eoLwU0Hn/wire-frame-design?t=StEgwdxRuO
 
 ### Project Boards
 
-- [Chad's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/1)
-- [Modise's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/2)
-- [Brian's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/3)
+- [Chad's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/3)
+- [Modise's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/6)
+- [Brian's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/5)
 
 > Double-check these link to the right board — open each one on GitHub and confirm the number in the URL matches before committing.
 
