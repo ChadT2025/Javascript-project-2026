@@ -196,7 +196,7 @@ code .
 
 ### Figma Link
 
-https://www.figma.com/make/jeM3MYwB52qW55eoLwU0Hn/wire-frame-design?t=StEgwdxRuOLGpqR9-1
+https://www.figma.com/make/GUAX8UlcJz7L9uP5XKRpfP/Implement-Design-Specifications?t=Mkumf6PugjwR3WZm-20&fullscreen=1
 
 ### Project Boards
 
