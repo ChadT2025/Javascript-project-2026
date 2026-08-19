@@ -238,9 +238,9 @@ This section serves as our week-by-week log of work completed by each team membe
 
 **Chad**
 
-- What I worked on:
-- Blockers:
-- Next steps:
+- What I worked on: Created a Low fedility wirframe and set up the ide toolkit to the repos/file.
+- Blockers: Nothing major just a small delay in adding colaborators.
+- Next steps: create high fedelity wireframe and complete the syntax and cookie section of the project
 
 **Modise**
 
@@ -261,9 +261,9 @@ This section serves as our week-by-week log of work completed by each team membe
 
 **Chad**
 
-- What I worked on:
-- Blockers:
-- Next steps:
+- What I worked on: created a High fedelity mockup and 1 tasks prototype page as well as added cookies and dialogs to the high fedelity wireframe and lastly set up syntax correction tools to catch errors in code.
+- Blockers: Nothing major
+- Next steps: Book review sesions to touch up potential problems before deadline
 
 **Modise**
 
@@ -330,9 +330,9 @@ This section serves as our week-by-week log of work completed by each team membe
 
 **Chad**
 
-- What I worked on: Created a Low fedility wirframe and set up the ide toolkit to the repos/file.
-- Blockers: Nothing major just a small delay in adding colaborators.
-- Next steps: create high fedelity wireframe and complete the syntax and cookie section of the project
+- What I worked on:
+- Blockers:
+- Next steps:
 
 **Modise**
 
@@ -353,9 +353,9 @@ This section serves as our week-by-week log of work completed by each team membe
 
 **Chad**
 
-- What I worked on: created a High fedelity mockup and 1 tasks prototype page as well as added cookies and dialogs to the high ffedelity wireframe and lastly set up syntax correction tools to catch errors in code.
-- Blockers: Nothing major
-- Next steps: Book review sesions to touch up potential problems before deadline
+- What I worked on:
+- Blockers:
+- Next steps:
 
 **Modise**
 
