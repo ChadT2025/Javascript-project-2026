@@ -4,7 +4,9 @@
   "description": "A JavaScript + Firebase learner support portal for managing tasks, bookings, and progress tracking — built as a team project for the NSSA JavaScript Programmer Skills Programme (SP-220373).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",

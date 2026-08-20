@@ -1,0 +1,4 @@
+
+> javascript-project-2026@1.0.0 lint
+> eslint .
+
