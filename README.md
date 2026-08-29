@@ -223,9 +223,9 @@ https://www.figma.com/make/GUAX8UlcJz7L9uP5XKRpfP/Implement-Design-Specification
 
 ### Project Boards
 
-- [Chad's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/3)
-- [Modise's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/6)
-- [Brian's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/5)
+- [Chad's Tasks](https://github.com/users/ChadT2025/projects/3/views/1)
+- [Modise's Tasks](https://github.com/users/ChadT2025/projects/5/views/1)
+- [Brian's Tasks](https://github.com/users/ChadT2025/projects/6)
   > Double-check these link to the right board — open each one on GitHub and confirm the number in the URL matches before committing.
 
 ---
