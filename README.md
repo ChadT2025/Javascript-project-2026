@@ -17,8 +17,7 @@ This project delivers a single web app where learners can:
 - Book support sessions
 - View their progress
 - Play a small learning game
-
-All data is backed by a Firebase database.
+  All data is backed by a Firebase database.
 
 ---
 
@@ -122,8 +121,7 @@ Examples:
 - `feature/brian-testing-plan`
 - `feature/modise-oop-logic`
 - `feature/chad-github-ui`
-
-**Workflow:**
+  **Workflow:**
 
 1. Open a Pull Request to merge into `main`.
 2. At least one team member must review the PR before it's merged.
@@ -134,13 +132,17 @@ Examples:
 ## Contribution Guidelines
 
 1. Pull the latest `main` before starting new work:
-   ```bash
+
+```bash
    git pull origin main
-   ```
+```
+
 2. Create a feature branch for your task:
-   ```bash
+
+```bash
    git checkout -b feature/your-name-your-task
-   ```
+```
+
 3. Commit often with clear messages, e.g.:
    - `feat: add task completion toggle`
    - `fix: correct progress percentage calculation`
@@ -148,6 +150,27 @@ Examples:
 5. Get at least one review before merging.
 6. Delete the branch after merging.
 7. Update the Project Board as your task status changes.
+
+---
+
+## Merge Conflict Resolution
+
+While working on the `Chad` feature branch, running `git merge main` attempted to bring in the latest changes from `main`. Both branches had edited the same lines in `README.md`, so Git could not automatically decide which version to keep. This produced a merge conflict:
+
+```
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Steps taken to resolve it:
+
+- Git marked the conflicting section with conflict markers (`<<<<<<< HEAD`, `=======`, `>>>>>>> main`), showing the current branch's version next to the incoming version.
+- The conflict was opened in VS Code's built-in merge editor, which displays the incoming change, the current change, and a result pane side by side.
+- The correct content was manually selected in the result pane so the final README reflected the intended version.
+- Once the conflict markers were removed, the file was staged with `git add`.
+- The merge was completed with a commit, finishing the merge of `main` into `Chad`.
+- The branch was pushed to `origin/Chad`, then merged back into `main` via a reviewed pull request.
 
 ---
 
@@ -203,8 +226,7 @@ https://www.figma.com/make/GUAX8UlcJz7L9uP5XKRpfP/Implement-Design-Specification
 - [Chad's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/3)
 - [Modise's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/6)
 - [Brian's Tasks](https://github.com/ChadT2025/Javascript-project-2026/projects/5)
-
-> Double-check these link to the right board — open each one on GitHub and confirm the number in the URL matches before committing.
+  > Double-check these link to the right board — open each one on GitHub and confirm the number in the URL matches before committing.
 
 ---
 
@@ -235,188 +257,148 @@ This section serves as our week-by-week log of work completed by each team membe
 
 <details>
 <summary><strong>Week 1</strong></summary>
-
 **Chad**
-
+ 
 - What I worked on: Created a Low fedility wirframe and set up the ide toolkit to the repos/file.
 - Blockers: Nothing major just a small delay in adding colaborators.
 - Next steps: create high fedelity wireframe and complete the syntax and cookie section of the project
-
 **Modise**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Brian**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 </details>
-
 <details>
 <summary><strong>Week 2</strong></summary>
-
 **Chad**
-
+ 
 - What I worked on: created a High fedelity mockup and 1 tasks prototype page as well as added cookies and dialogs to the high fedelity wireframe and lastly set up syntax correction tools to catch errors in code.
 - Blockers: Nothing major
 - Next steps: Book review sesions to touch up potential problems before deadline
-
 **Modise**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Brian**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 </details>
-
 <details>
 <summary><strong>Week 3</strong></summary>
-
 **Chad**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Modise**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Brian**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 </details>
-
 <details>
 <summary><strong>Week 4</strong></summary>
-
 **Chad**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Modise**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Brian**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 </details>
-
 <details>
 <summary><strong>Week 5</strong></summary>
-
 **Chad**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Modise**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Brian**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 </details>
-
 <details>
 <summary><strong>Week 6</strong></summary>
-
 **Chad**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Modise**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Brian**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 </details>
-
 <details>
 <summary><strong>Week 7</strong></summary>
-
 **Chad**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Modise**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Brian**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 </details>
-
 <details>
 <summary><strong>Week 8</strong></summary>
-
 **Chad**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Modise**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 **Brian**
-
+ 
 - What I worked on:
 - Blockers:
 - Next steps:
-
 </details>
-
 ---
-
+ 
 Built by **Team Chad · Modise · Brian** for the NSSA TPC JavaScript Programmer Skills Programme.
