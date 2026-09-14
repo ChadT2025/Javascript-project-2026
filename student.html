@@ -1,0 +1,15 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Dashboard</title><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></head>
+<body class="assessor-body" onload="loadStudent()">
+<div class="sidebar"><div>
+<div class="logo"><i class="fa-solid fa-graduation-cap" style="color:#06b6d4"></i> SkillsTrack</div>
+<div class="nav active"><i class="fa-solid fa-table-columns"></i> Dashboard</div>
+<div class="nav"><i class="fa-solid fa-book"></i> My Tasks</div>
+<div class="nav"><i class="fa-solid fa-chart-line"></i> Progress</div>
+</div><div><div class="nav"><span id="studentName">Student</span></div><div class="nav" onclick="logout()" style="color:#f87171">Sign Out</div></div></div>
+<div class="main"><h2>Welcome, <span id="studentNameMain">Student</span> 👋</h2><p id="studentEmail" style="color:#6b7280;font-size:12px"></p>
+<div class="stats" style="margin-top:20px"><div class="stat"><h3>3</h3><small>Tasks Submitted</small></div><div class="stat"><h3>1</h3><small>Pending Feedback</small></div></div>
+<p style="margin-top:20px;color:#9ca3af">Your work is being reviewed by Sam Assessor. Check back soon!</p>
+<button class="btn-glow" style="width:200px;margin-top:20px" onclick="location.href='assessor.html'">View Assessor View (Demo)</button>
+</div><script src="js/script.js"></script></body></html>

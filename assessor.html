@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assessor Overview - SkillsTrack</title><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></head>
+<body class="assessor-body" onload="loadAssessor()">
+ 
+<div class="sidebar"><div>
+<div class="logo"><i class="fa-solid fa-bolt" style="color:#ec4899"></i> SkillsTrack <small style="font-size:9px;color:#6b7280">ASSESSOR</small></div>
+<div class="nav active" id="nav-overview" onclick="showTab('overview')"><i class="fa-solid fa-table-columns"></i> Overview</div>
+<div class="nav" id="nav-learners" onclick="showTab('learners')"><i class="fa-solid fa-users"></i> Learners</div>
+<div class="nav" id="nav-reviews" onclick="showTab('reviews')"><i class="fa-solid fa-check"></i> Reviews</div>
+<div class="nav" id="nav-schedule" onclick="showTab('schedule')"><i class="fa-solid fa-calendar"></i> Schedule</div>
+</div><div>
+<div class="nav"><i class="fa-solid fa-user"></i> <span id="assessorName">Sam Assessor</span></div>
+<div class="nav" onclick="logout()" style="color:#f87171"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</div>
+</div></div>
+ 
+<div class="main">
+<div class="top"><div><h2 id="tabTitle">Assessor Overview</h2><p>Welcome, <span id="welcomeName">Sam Assessor</span> 👋</p><small id="lastLogin" style="color:#6b7280;font-size:10px"></small></div>
+<div><button class="theme-btn">Theme</button> <button class="theme-btn" style="background:rgba(124,58,237,.2)">Assessor Portal</button></div></div>
+ 
+<!-- OVERVIEW TAB -->
+<div class="tab-content active" id="tab-overview">
+<div class="stats">
+<div class="stat"><h3 id="totalLearners">0</h3><small>Total Learners</small></div>
+<div class="stat"><h3>3</h3><small>Active Sessions</small></div>
+<div class="stat"><h3 id="pendingCount">5</h3><small>Pending Reviews</small></div>
+<div class="stat"><h3>61%</h3><small>Avg Progress</small></div>
+</div>
+<div class="panels">
+<div class="panel"><h4>Recent Submissions</h4>
+<div class="row"><div><b>Alex Morgan</b><br><small style="color:#707a83">Login form validation</small></div><div><small>2h ago</small> <span class="badge pending" onclick="markReviewed(this)">Pending</span></div></div>
+<div class="row"><div><b>Jordan Lee</b><br><small style="color:#6b7280">API Integration Task</small></div><div><small>4h ago</small> <span class="badge pending" onclick="markReviewed(this)">Pending</span></div></div>
+<div class="row"><div><b>Casey Rivera</b><br><small style="color:#6b7280">Environment setup</small></div><div><small>Yesterday</small> <span class="badge reviewed">Reviewed</span></div></div>
+</div>
+<div class="panel"><h4>Today's Sessions</h4>
+<div class="row"><span><b>Alex Morgan</b><br><small style="color:#6b7280">Code Architecture Review</small></span><span>14:00</span></div>
+<div class="row"><span><b>Jordan Lee</b><br><small style="color:#6b7280">Java Debug Session</small></span><span>15:30</span></div>
+<div class="row"><span><b>Casey Rivera</b><br><small style="color:#6b7280">Final Project Review</small></span><span>16:30</span></div>
+<button class="btn-outline" onclick="showTab('schedule')">View Full Schedule →</button>
+</div></div>
+</div>
+ 
+<!-- LEARNERS TAB -->
+<div class="tab-content" id="tab-learners">
+<div class="panel">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<h4>All Learners (<span id="learnerCount">0</span>)</h4>
+<div><input id="learnerSearch" class="search-box" placeholder="Search learner..." onkeyup="filterLearners()"></div>
+</div>
+<div class="table-wrap"><table>
+<thead><tr><th>Learner</th><th>Email</th><th>Progress</th><th>Status</th><th>Action</th></tr></thead>
+<tbody id="learnersBody"></tbody>
+</table></div>
+</div>
+</div>
+ 
+<!-- REVIEWS TAB -->
+<div class="tab-content" id="tab-reviews">
+<div class="panel">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<h4>Submissions Review</h4>
+<div><button class="filter active" onclick="filterReviews('all',this)">All</button><button class="filter" onclick="filterReviews('pending',this)">Pending</button><button class="filter" onclick="filterReviews('reviewed',this)">Reviewed</button></div>
+</div>
+<div class="table-wrap"><table>
+<thead><tr><th>Student</th><th>Task</th><th>Submitted</th><th>Score</th><th>Status</th></tr></thead>
+<tbody id="reviewsBody">
+<tr><td><span class="avatar">AM</span> Alex Morgan</td><td>Login form validation</td><td>2h ago</td><td>-</td><td><span class="badge pending" onclick="markReviewed(this)">Pending</span></td></tr>
+<tr><td><span class="avatar">JL</span> Jordan Lee</td><td>API Integration Task</td><td>4h ago</td><td>78%</td><td><span class="badge pending" onclick="markReviewed(this)">Pending</span></td></tr>
+<tr><td><span class="avatar">CR</span> Casey Rivera</td><td>Environment setup</td><td>Yesterday</td><td>92%</td><td><span class="badge reviewed">Reviewed</span></td></tr>
+<tr><td><span class="avatar">SW</span> Sam Wu</td><td>Database Design</td><td>2 days ago</td><td>85%</td><td><span class="badge reviewed">Reviewed</span></td></tr>
+</tbody>
+</table></div>
+</div>
+</div>
+ 
+<!-- SCHEDULE TAB -->
+<div class="tab-content" id="tab-schedule">
+<div class="stats">
+<div class="stat"><h3>8</h3><small>Today's Meetings</small></div>
+<div class="stat"><h3>3</h3><small>1-on-1 Reviews</small></div>
+<div class="stat"><h3>2</h3><small>Group Sessions</small></div>
+<div class="stat"><h3>12h</h3><small>Week Hours</small></div>
+</div>
+<div class="panel">
+<h4>Full Week Schedule</h4>
+<div class="row"><div><b><i class="fa-solid fa-video" style="color:var(--cyan)"></i> 09:00 - Orientation Call</b><br><small style="color:#6b7280">New batch - Alex, Jordan, Casey</small></div><span class="badge reviewed">Group</span></div>
+<div class="row"><div><b>14:00 - Alex Morgan - Code Architecture Review</b><br><small style="color:#6b7280">Check login flow & validation logic</small></div><span class="badge pending">1-on-1</span></div>
+<div class="row"><div><b>15:30 - Jordan Lee - Java Debug Session</b><br><small style="color:#6b7280">API error handling deep dive</small></div><span class="badge pending">1-on-1</span></div>
+<div class="row"><div><b>16:30 - Casey Rivera - Final Project Review</b><br><small style="color:#6b7280">Environment + deployment ready?</small></div><span class="badge pending">1-on-1</span></div>
+<div class="row"><div><b><i class="fa-solid fa-users" style="color:var(--pink)"></i> 17:30 - Weekly Feedback Meeting</b><br><small style="color:#6b7280">All learners - Progress & blockers</small></div><span class="badge reviewed">Group</span></div>
+</div>
+</div>
+ 
+</div>
+<script src="js/script.js"></script></body></html>
+has context menu

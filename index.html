@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Login - SkillsTrack</title><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></head>
+<body><div class="auth-wrap"><div class="glow-card"><div class="glow-inner">
+<div style="text-align:center"><span class="badge-role student">STUDENT PORTAL</span></div>
+<div class="form-title"><i class="fa-solid fa-graduation-cap" style="color:#06b6d4"></i> STUDENT LOGIN</div>
+<form onsubmit="studentLogin(event)">
+<div class="input-group"><i class="fa-regular fa-user"></i><input id="st_user" placeholder="Email or Username" required></div>
+<div class="input-group"><i class="fa-solid fa-lock"></i><input id="st_pass" type="password" placeholder="Password" required></div>
+<div id="st_err" class="error"></div><div id="st_ok" class="success"></div>
+<button class="btn-glow" type="submit">Sign In as Student</button>
+<div class="form-links"><a href="assessor-login.html">Assessor Login?</a><a href="signup.html">Create Account</a></div>
+</form></div></div></div><script src="js/script.js"></script></body></html>

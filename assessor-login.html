@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assessor Login</title><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></head>
+<body><div class="auth-wrap"><div class="glow-card"><div class="glow-inner">
+<div style="text-align:center"><span class="badge-role assessor">ASSESSOR PORTAL</span></div>
+<div class="form-title"><i class="fa-solid fa-user-shield" style="color:#7c3aed"></i> ASSESSOR LOGIN</div>
+<form onsubmit="assessorLogin(event)">
+<div class="input-group"><i class="fa-regular fa-user"></i><input id="as_user" placeholder="assessor@skillstrack.com" value="assessor@skillstrack.com" required></div>
+<div class="input-group"><i class="fa-solid fa-lock"></i><input id="as_pass" type="password" placeholder="1234" value="1234" required></div>
+<div id="as_err" class="error"></div><div id="as_ok" class="success"></div>
+<button class="btn-glow" type="submit">Sign In as Assessor</button>
+<div class="form-links"><a href="index.html">Student Login?</a><a href="signup.html">Create Assessor</a></div>
+</form><div style="text-align:center;margin-top:12px;color:#555;font-size:10px">Demo: assessor@skillstrack.com / 1234</div>
+</div></div></div><script src="js/script.js"></script></body></html>
