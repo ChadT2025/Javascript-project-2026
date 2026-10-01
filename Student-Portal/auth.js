@@ -76,6 +76,15 @@ export async function changePassword(currentPassword, newPassword) {
   await updatePassword(user, newPassword);
 }
 
+function formatLastLogin(timeString) {
+  if (!timeString) return "Today";
+  const date = new Date(timeString);
+  const time = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  return date.toDateString() === new Date().toDateString()
+    ? "Today at " + time
+    : date.toLocaleDateString() + " at " + time;
+}
+
 // ---------- Protect a dashboard page ----------
 export function requireRole(expectedRole) {
   onAuthStateChanged(auth, async (user) => {
@@ -90,6 +99,8 @@ export function requireRole(expectedRole) {
 
       const set = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
       set("footerName", data.name);
+      set("welcomeName", data.name);
+      set("lastLogin", formatLastLogin(user.metadata.lastSignInTime));
       set("pageTitle", "Welcome, " + data.name);
       document.body.style.visibility = "visible";
     } catch (err) {

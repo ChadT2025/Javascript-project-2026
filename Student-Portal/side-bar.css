@@ -107,3 +107,317 @@ body {
   padding: 40px;
   color: #8b93ad;
 }
+
+/* ===== Dashboard components (used together with side-bar.css) ===== */
+
+.nav a.active {
+  background: rgba(124, 92, 255, .18);
+  border: 1px solid #7c5cff;
+  border-left-width: 4px;
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+.nav a:not(.active):hover {
+  color: #e7e9f3;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 30px;
+  color: #e7e9f3;
+}
+
+/* ===== Welcome banner ===== */
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  border: 1px solid #3b2f7a;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #2a1f55, #1e1845);
+}
+
+.banner h2 {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.banner small {
+  color: #8b93ad;
+  font-size: 12px;
+}
+
+.pill-active {
+  padding: 9px 30px;
+  border: 1.5px solid #2dd4a0;
+  border-radius: 22px;
+  background: rgba(45, 212, 160, .1);
+  color: #2dd4a0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===== Stat cards ===== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat {
+  padding: 20px;
+  border: 1px solid #1f2740;
+  border-radius: 10px;
+  background: #141a33;
+}
+
+.stat .num {
+  margin-bottom: 8px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.stat .num.green {
+  color: #34d399;
+}
+
+.stat .num.purple {
+  color: #8b7cf6;
+}
+
+.stat .label {
+  color: #8b93ad;
+  font-size: 12px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* ===== Panels ===== */
+
+.panels {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 16px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #1f2740;
+  border-radius: 10px;
+  background: #141a33;
+}
+
+.panel h4 {
+  margin-bottom: 18px;
+  color: #8b93ad;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.panel-spacer {
+  flex: 1;
+  min-height: 20px;
+}
+
+.empty {
+  padding: 14px 0;
+  color: #8b93ad;
+  font-size: 13px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid #7c5cff;
+}
+
+.task.in-progress {
+  border-left-color: #f5a623;
+}
+
+.task.pending {
+  border-left-color: #5b8def;
+}
+
+.task span:first-child {
+  font-size: 14px;
+}
+
+.badge {
+  padding: 8px 30px;
+  border: 1.5px solid;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge.in-progress {
+  border-color: #f5a623;
+  background: rgba(245, 166, 35, .15);
+  color: #f5a623;
+}
+
+.badge.pending {
+  border-color: #5b8def;
+  background: rgba(91, 141, 239, .15);
+  color: #6d9bf5;
+}
+
+.booking-title {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.booking-meta {
+  color: #8b7cf6;
+  font-size: 13px;
+}
+
+/* ===== Print button ===== */
+
+.btn-print {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #7c5cff;
+  border-radius: 8px;
+  background: transparent;
+  color: #a78bfa;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-print:hover {
+  background: rgba(124, 92, 255, .15);
+}
+
+.print-only {
+  display: none;
+}
+
+/* ===== Small screens ===== */
+
+@media (max-width: 900px) {
+  .stats,
+  .panels {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ===== Light theme (Theme button adds class "light" to body) ===== */
+
+body.light {
+  background: #f4f6fb;
+  color: #1a1f36;
+}
+
+body.light .sidebar {
+  background: #fff;
+  border-color: #e2e6f0;
+}
+
+body.light .brand,
+body.light .footer {
+  border-color: #e2e6f0;
+}
+
+body.light .topbar {
+  background: #f4f6fb;
+  border-color: #e2e6f0;
+}
+
+body.light .nav a {
+  color: #5b6480;
+}
+
+body.light .nav a.active {
+  color: #5b3fd6;
+}
+
+body.light .theme-btn {
+  color: #1a1f36;
+}
+
+body.light .page {
+  color: #1a1f36;
+}
+
+body.light .stat,
+body.light .panel {
+  background: #fff;
+  border-color: #e2e6f0;
+}
+
+body.light .banner {
+  background: #ece8ff;
+  border-color: #cfc6ff;
+}
+
+/* ===== Print Summary PDF ===== */
+
+@media print {
+  .sidebar,
+  .topbar,
+  .btn-print {
+    display: none !important;
+  }
+
+  body,
+  body.light {
+    display: block;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .page {
+    padding: 0;
+    color: #000 !important;
+  }
+
+  .banner,
+  .stat,
+  .panel {
+    background: #fff !important;
+    border: 1px solid #999 !important;
+    color: #000 !important;
+  }
+
+  .stat .num,
+  .stat .label,
+  .panel h4,
+  .banner small,
+  .booking-meta,
+  .empty {
+    color: #000 !important;
+  }
+
+  .print-only {
+    display: block;
+    margin-bottom: 12px;
+  }
+}

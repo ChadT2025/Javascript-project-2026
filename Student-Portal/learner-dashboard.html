@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillsTrack - Learner</title>
+  <title>SkillsTrack - Learner Dashboard</title>
   <link rel="stylesheet" href="side-bar.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body style="visibility:hidden">
   <aside class="sidebar">
@@ -32,17 +33,101 @@
 
   <main class="content">
     <div class="topbar">
-      <h1 id="pageTitle">Loading...</h1>
-      <button class="theme-btn">◐ Theme</button>
+      <h1>Dashboard</h1>
+      <button class="theme-btn" id="themeBtn">☾ Theme</button>
     </div>
+
     <div class="page">
-      <p>Main content area</p>
+      <h2 class="print-only">SkillsTrack – Learner Summary</h2>
+
+      <section class="banner">
+        <div>
+          <h2>Welcome back, <span id="welcomeName">...</span></h2>
+          <small>Last login: <span id="lastLogin">—</span> • <span id="tasksDue">0</span> tasks due this week</small>
+        </div>
+        <span class="pill-active">Portal Active</span>
+      </section>
+
+      <section class="stats">
+        <div class="stat"><div class="num" id="statAssigned">0</div><div class="label">Assigned Tasks</div></div>
+        <div class="stat"><div class="num green" id="statCompleted">0</div><div class="label">Completed</div></div>
+        <div class="stat"><div class="num purple" id="statProgress">0%</div><div class="label">Calculated Progress</div></div>
+      </section>
+
+      <section class="panels">
+        <div class="panel">
+          <h4>Outstanding Tasks</h4>
+          <div id="taskList"><p class="empty">No outstanding tasks yet.</p></div>
+        </div>
+
+        <div class="panel">
+          <h4>Upcoming Booking</h4>
+          <div id="bookingBox">
+            <div class="booking-title">No upcoming booking</div>
+            <div class="booking-meta">—</div>
+          </div>
+          <div class="panel-spacer"></div>
+          <button class="btn-print" id="printBtn">Print Summary PDF</button>
+        </div>
+      </section>
     </div>
   </main>
 
   <script type="module">
     import { requireRole } from "./auth.js";
     requireRole("learner");
+
+    // ---------- Render helpers (call these once you load data from Firestore) ----------
+    const $ = (id) => document.getElementById(id);
+
+    function renderStats(assigned, completed) {
+      $("statAssigned").textContent = assigned;
+      $("statCompleted").textContent = completed;
+      $("statProgress").textContent = (assigned ? Math.round((completed / assigned) * 100) : 0) + "%";
+    }
+
+    // tasks = [{ title: "Write docs", status: "in-progress" | "pending" }]
+    function renderTasks(tasks) {
+      if (!tasks.length) return;
+      $("taskList").replaceChildren(...tasks.map((t) => {
+        const row = document.createElement("div");
+        row.className = "task " + t.status;
+        const name = document.createElement("span");
+        name.textContent = t.title;
+        const badge = document.createElement("span");
+        badge.className = "badge " + t.status;
+        badge.textContent = t.status === "in-progress" ? "In Progress" : "Pending";
+        row.append(name, badge);
+        return row;
+      }));
+    }
+
+    function renderBooking(title, when) {
+      $("bookingBox").querySelector(".booking-title").textContent = title;
+      $("bookingBox").querySelector(".booking-meta").textContent = when;
+    }
+
+    // Everything starts at zero. Add ?demo to the URL to preview the prototype data:
+    // learner-dashboard.html?demo
+    if (new URLSearchParams(location.search).has("demo")) {
+      renderStats(12, 7);
+      $("tasksDue").textContent = 3;
+      renderTasks([
+        { title: "Develop login form validation", status: "in-progress" },
+        { title: "Write project documentation",   status: "pending" }
+      ]);
+      renderBooking("Code Architecture Review", "Aug 12, 2026 • 14:00");
+    }
+
+    // ---------- Theme toggle (remembered in this browser) ----------
+    try { if (localStorage.getItem("theme") === "light") document.body.classList.add("light"); } catch {}
+    $("themeBtn").addEventListener("click", () => {
+      const light = document.body.classList.toggle("light");
+      try { localStorage.setItem("theme", light ? "light" : "dark"); } catch {}
+    });
+
+    // ---------- Print Summary PDF (choose "Save as PDF" in the print window) ----------
+    $("printBtn").addEventListener("click", () => window.print());
   </script>
 </body>
 </html>
