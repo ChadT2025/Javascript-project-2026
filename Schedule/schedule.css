@@ -1,0 +1,68 @@
+body {
+  font-family: Arial;
+  color: white;
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  flex: 1;
+  font-size: 30px;
+  color: white;
+}
+
+.confirmed-badge {
+  font-size: 11px;
+  font-family: Arial;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: white;
+}
+
+.schedule-card {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-size: 12px;
+  color: white;
+  padding-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #7c5cff;
+}
+
+td {
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: normal;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #3a3560;
+}

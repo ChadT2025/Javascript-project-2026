@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Schedule</title>
+    <link rel="stylesheet" href="../Placeholder/placeholder.css" />
+    <link rel="stylesheet" href="./schedule.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <span class="name">SkillsTrack</span>
+          <span class="role">ASSESOR</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../Student-Portal/assessor-overview.html" class="active"
+          >Overview</a
+        >
+        <a href="">Learners</a>
+        <a href="../Reviews/reviews.html">Reviews</a>
+        <a href="./schedule.html">Schedule</a>
+      </nav>
+
+      <div class="footer">
+        <strong>Placeholder</strong>
+        <a href="" class="signout">⏻ Sign Out</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <h1>ASSESOR Schedule</h1>
+        <button class="theme-btn">◐ Theme</button>
+      </div>
+      <div class="page">
+        <div class="header">
+          <p class="title">Confirmed Sessions</p>
+
+          <p class="confirmed-badge" id="confirmedBadge">Loading...</p>
+        </div>
+
+        <div class="schedule-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Learner</th>
+                <th>Date</th>
+                <th>Session</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./schedule.js"></script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hangman</title>
+    <link rel="stylesheet" href="../Placeholder/placeholder.css" />
+    <link rel="stylesheet" href="./hangman.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <span class="name">SkillsTrack</span>
+          <span class="role">LEARNER</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../Student-Portal/learner-dashboard.html" class="active"
+          >Dashboard</a
+        >
+        <a href="">Progress</a>
+        <a href="">Tasks</a>
+        <a href="../Bookings/booking.html">Booking</a>
+        <a href="./hangman.html">Hangman</a>
+      </nav>
+
+      <div class="footer">
+        <strong>Placeholder</strong>
+        <a href="" class="signout">⏻ Sign Out</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <h1>Hangman</h1>
+        <button class="theme-btn">◐ Theme</button>
+      </div>
+      <div class="page">
+        <div class="hangman-container">
+          <h1>Hangman</h1>
+
+          <img id="hangmanImg" src="../Images/hangman_0.png" alt="Hangman" />
+
+          <p id="wordDisplay"></p>
+          <p id="message"></p>
+
+          <div id="keyboard"></div>
+
+          <button id="resetBtn" onclick="initGame()">Play Again</button>
+        </div>
+      </div>
+    </main>
+    <script src="./hangman.js"></script>
+  </body>
+</html>

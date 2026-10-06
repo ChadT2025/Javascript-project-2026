@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Book Support Sessions</title>
+    <link rel="stylesheet" href="../Placeholder/placeholder.css" />
+    <link rel="stylesheet" href="./booking.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <span class="name">SkillsTrack</span>
+          <span class="role">LEARNER</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../Student-Portal/learner-dashboard.html" class="active"
+          >Dashboard</a
+        >
+        <a href="">Progress</a>
+        <a href="">Tasks</a>
+        <a href="booking.html">Booking</a>
+        <a href="../Hangman/hangman.html">Hangman</a>
+      </nav>
+
+      <div class="footer">
+        <strong>Placeholder</strong>
+        <a href="" class="signout">⏻ Sign Out</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <h1>Booking Support Sessions</h1>
+        <button class="theme-btn">◐ Theme</button>
+      </div>
+      <div class="page">
+        <div class="header">
+          <p class="title">Support Booking</p>
+
+          <p class="slots-badge" id="slotsBadge">Loading...</p>
+        </div>
+
+        <div class="booking-card">
+          <p class="select-label">YOUR NAME</p>
+
+          <input
+            class="select"
+            id="nameInput"
+            type="text"
+            placeholder="Please Enter Your Name."
+          />
+
+          <p class="select-label">SELECT SESSION TOPIC</p>
+
+          <select class="select" id="topicSelect">
+            <option>1-on-1 Code Review & Debugging</option>
+            <option>Career Advice</option>
+            <option>Project Planning</option>
+          </select>
+
+          <p class="select-label">DATE & TIME SLOT</p>
+
+          <select class="select" id="slotSelect"></select>
+
+          <button
+            class="confirm-button"
+            id="confirmButton"
+            onclick="handleBookingSubmit()"
+          >
+            Confirm Support Slot
+          </button>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="booking.js"></script>
+  </body>
+</html>
