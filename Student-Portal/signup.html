@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Account</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="glow-card">
+      <div class="glow-inner">
+
+        <div class="form-title">CREATE ACCOUNT</div>
+
+        <form id="signupForm">
+          <div class="input-group">
+            <i class="fa-regular fa-user"></i>
+            <input id="su_name" placeholder="Full Name" autocomplete="name" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-regular fa-envelope"></i>
+            <input id="su_email" type="email" placeholder="Email" autocomplete="email" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input id="su_pass" type="password" placeholder="Password (min 6)" autocomplete="new-password" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-user-tag"></i>
+            <select id="su_role">
+              <option value="learner">Learner</option>
+              <option value="assessor">Assessor</option>
+            </select>
+          </div>
+
+          <div id="su_err" class="error"></div>
+          <div id="su_ok" class="success"></div>
+
+          <button class="btn-glow" type="submit">Create Account</button>
+
+          <div class="form-links">
+            <a href="learner-login.html">Learner Login</a>
+            <a href="assessor-login.html">Assessor Login</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initSignupForm } from "./auth.js";
+    initSignupForm();
+  </script>
+</body>
+</html>

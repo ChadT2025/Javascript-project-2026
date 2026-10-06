@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assessor Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="glow-card">
+      <div class="glow-inner">
+
+        <div style="text-align:center">
+          <span class="badge-role assessor">ASSESSOR PORTAL</span>
+        </div>
+
+        <div class="form-title">ASSESSOR LOGIN</div>
+
+        <form id="loginForm">
+          <div class="input-group">
+            <i class="fa-regular fa-envelope"></i>
+            <input id="as_user" type="email" placeholder="Enter Email" autocomplete="username" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input id="as_pass" type="password" placeholder="Enter Password" autocomplete="current-password" required>
+          </div>
+
+          <div id="as_err" class="error"></div>
+          <div id="as_ok" class="success"></div>
+
+          <button class="btn-glow" type="submit">Sign In as Assessor</button>
+
+          <div class="form-links">
+            <a href="learner-login.html">Learner Login?</a>
+            <a href="signup.html">Create Account</a>
+          </div>
+          <div class="form-links" style="justify-content:center">
+            <a href="forgot-password.html?role=assessor">Forgot password?</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initLoginForm } from "./auth.js";
+    initLoginForm("assessor");
+  </script>
+</body>
+</html>
