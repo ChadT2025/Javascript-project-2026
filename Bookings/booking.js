@@ -100,12 +100,13 @@ async function handleBookingSubmit() {
 // Lets the HTML button call this function
 window.handleBookingSubmit = handleBookingSubmit;
 
-// Runs when the page loads, but only once we know someone is logged in.
-// (This replaces your old loadAvailableSlots(); line)
-onAuthStateChanged(auth, (user) => {
+// Runs when we find out if someone is logged in
+function handleAuthChange(user) {
   if (user) {
     loadAvailableSlots();
   } else {
     window.location.href = "../Student-Portal/learner-login.html";
   }
-});
+}
+
+onAuthStateChanged(auth, handleAuthChange);

@@ -108,10 +108,13 @@ async function updateStatus(id, newStatus) {
   loadReviews();
 }
 
-onAuthStateChanged(auth, (user) => {
+// Runs when we find out if someone is logged in
+function handleAuthChange(user) {
   if (user) {
     loadReviews();
   } else {
     window.location.href = "../Student-Portal/assessor-login.html";
   }
-});
+}
+
+onAuthStateChanged(auth, handleAuthChange);

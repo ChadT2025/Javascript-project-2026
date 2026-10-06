@@ -51,10 +51,13 @@ async function loadSchedule() {
   tableBody.innerHTML = rowsHTML;
 }
 
-onAuthStateChanged(auth, (user) => {
+// Runs when we find out if someone is logged in
+function handleAuthChange(user) {
   if (user) {
     loadSchedule();
   } else {
     window.location.href = "../Student-Portal/learner-login.html";
   }
-});
+}
+
+onAuthStateChanged(auth, handleAuthChange);
