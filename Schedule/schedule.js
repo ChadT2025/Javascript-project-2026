@@ -1,5 +1,9 @@
-import { db } from "./firebase-config.js";
-import { collection, getDocs } from "firebase/firestore";
+import { db, auth } from "./firebase-config.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+import {
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 
 const tableBody = document.querySelector("#scheduleBody");
 const confirmedBadge = document.querySelector("#confirmedBadge");
@@ -47,4 +51,10 @@ async function loadSchedule() {
   tableBody.innerHTML = rowsHTML;
 }
 
-loadSchedule();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    loadSchedule();
+  } else {
+    window.location.href = "../Student-Portal/learner-login.html";
+  }
+});

@@ -1,6 +1,12 @@
 // Connecting Firebase database connection
-import { db } from "./firebase-config.js";
-import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
+import { db, auth } from "./firebase-config.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+import {
+  collection,
+  getDocs,
+  doc,
+  updateDoc,
+} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 
 // Stores all bookings from the firebase
 let bookings = [];
@@ -40,7 +46,7 @@ async function loadReviews() {
   let reviewsHTML = "";
 
   for (const [index, booking] of bookings.entries()) {
-    let buttonsHTML = "";
+    let buttonsHTML;
 
     // Pending gets Approve/Reject, anything else gets an Undo
     // The index makes each button's class unique
@@ -102,4 +108,10 @@ async function updateStatus(id, newStatus) {
   loadReviews();
 }
 
-loadReviews();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    loadReviews();
+  } else {
+    window.location.href = "../Student-Portal/assessor-login.html";
+  }
+});
