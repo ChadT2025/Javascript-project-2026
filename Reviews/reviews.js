@@ -102,7 +102,7 @@ async function loadReviews() {
   }
 }
 
-// Updates one booking's status in Firebase, then refreshes the list
+// Updates a learners booking's status in Firebase, then refreshes the list
 async function updateStatus(id, newStatus) {
   await updateDoc(doc(db, "bookings", id), { status: newStatus });
   loadReviews();
