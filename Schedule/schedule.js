@@ -32,6 +32,7 @@ async function loadSchedule() {
     return;
   }
 
+  //Adds rows to the schedule table in  the page
   let rowsHTML = "";
 
   for (const booking of bookings) {
