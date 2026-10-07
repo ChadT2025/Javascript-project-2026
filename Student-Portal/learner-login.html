@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learner Login</title>
+  <title>SkillsTrack — Sign In</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -12,34 +12,35 @@
     <div class="glow-card">
       <div class="glow-inner">
 
-        <div style="text-align:center">
-          <span class="badge-role student">LEARNER PORTAL</span>
+        <div class="role-tabs">
+          <button class="role-tab active" id="tabLearner"   onclick="switchTab('learner')">Learner</button>
+          <button class="role-tab"        id="tabAssessor"  onclick="switchTab('assessor')">Assessor / Facilitator</button>
         </div>
 
-        <div class="form-title">LEARNER LOGIN</div>
+        <div class="form-title" id="loginTitle">Welcome Back</div>
+        <p class="form-sub"   id="loginSub">Sign in to access your learning portal</p>
 
         <form id="loginForm">
           <div class="input-group">
             <i class="fa-regular fa-envelope"></i>
-            <input id="as_user" type="email" placeholder="Enter Email" autocomplete="username" required>
+            <input id="as_user" type="email" placeholder="Email address" autocomplete="username" required>
           </div>
 
           <div class="input-group">
             <i class="fa-solid fa-lock"></i>
-            <input id="as_pass" type="password" placeholder="Enter Password" autocomplete="current-password" required>
+            <input id="as_pass" type="password" placeholder="Password" autocomplete="current-password" required>
           </div>
 
           <div id="as_err" class="error"></div>
-          <div id="as_ok" class="success"></div>
+          <div id="as_ok"  class="success"></div>
 
-          <button class="btn-glow" type="submit">Sign In as Learner</button>
+          <button class="btn-glow" type="submit" id="submitBtn">Sign In to Dashboard</button>
 
-          <div class="form-links">
-            <a href="assessor-login.html">Assessor Login?</a>
-            <a href="signup.html">Create Account</a>
+          <div class="form-links" style="justify-content:center; margin-top:16px;">
+            <a id="forgotLink" href="forgot-password.html?role=learner">Forgot password?</a>
           </div>
-          <div class="form-links" style="justify-content:center">
-            <a href="forgot-password.html?role=learner">Forgot password?</a>
+          <div class="form-links" style="justify-content:center; margin-top:8px;">
+            <a href="signup.html">Don't have an account? Sign up</a>
           </div>
         </form>
 
@@ -49,6 +50,42 @@
 
   <script type="module">
     import { initLoginForm } from "./auth.js";
+
+    let currentRole = "learner";
+
+    window.switchTab = function(role) {
+      currentRole = role;
+
+      document.getElementById("tabLearner").classList.toggle("active",  role === "learner");
+      document.getElementById("tabAssessor").classList.toggle("active", role === "assessor");
+
+      if (role === "learner") {
+        document.getElementById("loginTitle").textContent = "Welcome Back";
+        document.getElementById("loginSub").textContent   = "Sign in to access your learning portal";
+        document.getElementById("submitBtn").textContent  = "Sign In to Dashboard";
+        document.getElementById("forgotLink").href        = "forgot-password.html?role=learner";
+      } else {
+        document.getElementById("loginTitle").textContent = "Welcome Back";
+        document.getElementById("loginSub").textContent   = "Sign in to manage learners & sessions";
+        document.getElementById("submitBtn").textContent  = "Sign In to Assessor Portal";
+        document.getElementById("forgotLink").href        = "forgot-password.html?role=assessor";
+      }
+      
+      setupForm(role);
+    };
+
+    function setupForm(role) {
+      const form = document.getElementById("loginForm");
+      // Remove existing listener by cloning
+      const newForm = form.cloneNode(true);
+      form.parentNode.replaceChild(newForm, form);
+      // Re-attach tab switcher buttons (they're inside the cloned form)
+      document.querySelectorAll(".role-tab").forEach(btn => {
+        btn.addEventListener("click", () => window.switchTab(btn.id === "tabLearner" ? "learner" : "assessor"));
+      });
+      initLoginForm(role);
+    }
+
     initLoginForm("learner");
   </script>
 </body>

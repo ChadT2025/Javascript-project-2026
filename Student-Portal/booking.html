@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Booking</title>
+  <link rel="stylesheet" href="side-bar.css">
+  <style>
+    .booking-card {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      background: var(--bg-card);
+    }
+
+    .select-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      margin-top: 16px;
+    }
+    .select-label:first-child { margin-top: 0; }
+
+    .booking-select {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      transition: .2s;
+      appearance: none;
+    }
+    .booking-select:focus { border-color: var(--accent); }
+    .booking-select option { background: #141a33; }
+
+    .confirm-btn {
+      margin-top: 22px;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .2s;
+    }
+    .confirm-btn:hover:not(:disabled) { opacity: .88; transform: translateY(-1px); }
+    .confirm-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    .booking-success {
+      display: none;
+      margin-top: 14px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--teal);
+      background: rgba(45,212,160,.08);
+      color: var(--teal);
+      font-size: 13px;
+    }
+
+    .existing-box {
+      display: none;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      background: var(--bg-card);
+      max-width: 560px;
+    }
+    .existing-box h4 { font-size: 11px; letter-spacing: .5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+
+    body.light .booking-card, body.light .existing-box { background: #fff; border-color: #e2e6f0; }
+    body.light .booking-select { background: #f4f6fb; border-color: #e2e6f0; color: #1a1f36; }
+    body.light .booking-select option { background: #fff; color: #1a1f36; }
+  </style>
+</head>
+<body style="visibility:hidden">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div><span class="name">SkillsTrack</span><span class="role">LEARNER</span></div>
+    </div>
+    <nav class="nav">
+      <a href="learner-dashboard.html">Dashboard</a>
+      <a href="learner-progress.html">Progress</a>
+      <a href="learner-tasks.html">Tasks</a>
+      <a href="booking.html" class="active">Booking</a>
+    </nav>
+    <div class="footer">
+      <strong id="footerName">Loading…</strong>
+      <a href="change-password.html">Change Password</a>
+      <a href="#" class="signout">⏻ Sign Out</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="topbar">
+      <h1>Support Booking</h1>
+      <div class="topbar-actions">
+        <span class="pill" id="slotsBadge">Loading…</span>
+        <button class="theme-btn" id="themeBtn">☾ Light</button>
+      </div>
+    </div>
+
+    <div class="page">
+
+      <!-- Existing booking (shown if learner already has one) -->
+      <div class="existing-box" id="existingBooking">
+        <h4>Your Current Booking</h4>
+      </div>
+
+      <!-- New booking form -->
+      <div class="booking-card">
+        <p class="select-label">Select session topic</p>
+        <select class="booking-select" id="topicSelect">
+          <option>1-on-1 Code Review &amp; Debugging</option>
+          <option>Career Advice</option>
+          <option>Project Planning</option>
+          <option>Progress Review</option>
+        </select>
+
+        <p class="select-label">Date &amp; time slot</p>
+        <select class="booking-select" id="slotSelect"></select>
+
+        <button class="confirm-btn" id="confirmButton" disabled>Loading slots…</button>
+        <div class="booking-success" id="bookingSuccess"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module" src="./booking.js"></script>
+</body>
+</html>

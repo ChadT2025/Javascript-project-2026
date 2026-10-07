@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Reviews</title>
+  <link rel="stylesheet" href="side-bar.css">
+  <style>
+    .review-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      background: var(--bg-card);
+      margin-bottom: 10px;
+      transition: .15s;
+    }
+
+    .review-card.submitted { border-left-color: var(--amber);       }
+    .review-card.approved  { border-left-color: var(--green);       }
+    .review-card.rejected  { border-left-color: var(--red);         }
+
+    .review-left  { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+    .review-title { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .review-meta  { font-size: 12px; color: var(--text-muted); }
+    .review-date  { font-size: 11px; color: var(--text-muted); }
+
+    .review-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn-approve, .btn-reject, .btn-undo {
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid;
+      transition: .15s;
+    }
+
+    .btn-approve {
+      border-color: var(--green);
+      background: rgba(52,211,153,.1);
+      color: var(--green);
+    }
+    .btn-approve:hover { background: rgba(52,211,153,.25); }
+
+    .btn-reject {
+      border-color: var(--red);
+      background: rgba(248,113,113,.1);
+      color: var(--red);
+    }
+    .btn-reject:hover { background: rgba(248,113,113,.25); }
+
+    .btn-undo {
+      border-color: var(--border);
+      background: transparent;
+      color: var(--text-muted);
+    }
+    .btn-undo:hover { border-color: var(--text-muted); color: var(--text); }
+
+    body.light .review-card { background: #fff; border-color: #e2e6f0; }
+  </style>
+</head>
+<body style="visibility:hidden">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div><span class="name">SkillsTrack</span><span class="role">ASSESSOR</span></div>
+    </div>
+    <nav class="nav">
+      <a href="assessor-overview.html">Overview</a>
+      <a href="assessor-learners.html">Learners</a>
+      <a href="assessor-reviews.html" class="active">Reviews</a>
+      <a href="assessor-schedule.html">Schedule</a>
+    </nav>
+    <div class="footer">
+      <strong id="footerName">Loading…</strong>
+      <a href="change-password.html">Change Password</a>
+      <a href="#" class="signout">⏻ Sign Out</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="topbar">
+      <h1>Task Reviews</h1>
+      <div class="topbar-actions">
+        <span class="pill" id="pendingCount">0 Pending</span>
+        <button class="theme-btn" id="themeBtn">☾ Light</button>
+      </div>
+    </div>
+
+    <div class="page">
+      <div id="reviewList"><p class="empty">Loading submissions…</p></div>
+    </div>
+  </main>
+
+  <script type="module" src="./assessor-reviews.js"></script>
+</body>
+</html>

@@ -2,68 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillsTrack - Assessor Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Assessor Overview</title>
   <link rel="stylesheet" href="side-bar.css">
-  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    .stats { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 900px) { .stats { grid-template-columns: 1fr 1fr; } }
+  </style>
 </head>
 <body style="visibility:hidden">
+
   <aside class="sidebar">
     <div class="brand">
       <div class="brand-icon">⚡</div>
-      <div>
-        <span class="name">SkillsTrack</span>
-        <span class="role">ASSESSOR</span>
-      </div>
+      <div><span class="name">SkillsTrack</span><span class="role">ASSESSOR</span></div>
     </div>
-
     <nav class="nav">
-      <a href="assessor-overview.html" class="active">Overview</a>
-      <a href="#">Learners</a>
-      <a href="#">Reviews</a>
-      <a href="#">Booking</a>
-      <a href="#">Schedule</a>
+      <a href="assessor-overview.html"  class="active">Overview</a>
+      <a href="assessor-learners.html">Learners</a>
+      <a href="assessor-reviews.html">Reviews</a>
+      <a href="assessor-schedule.html">Schedule</a>
     </nav>
-
     <div class="footer">
-      <strong id="footerName">Loading...</strong>
+      <strong id="footerName">Loading…</strong>
+      <a href="change-password.html">Change Password</a>
       <a href="#" class="signout">⏻ Sign Out</a>
     </div>
   </aside>
 
   <main class="content">
     <div class="topbar">
-      <h1>Overview</h1>
-      <button class="theme-btn" id="themeBtn">☾ Theme</button>
+      <h1>Assessor Overview</h1>
+      <div class="topbar-actions">
+        <button class="theme-btn" id="themeBtn">☾ Light</button>
+      </div>
     </div>
 
     <div class="page">
-      <h2 class="print-only">SkillsTrack – Assessor Summary</h2>
+      <h2 class="print-only">SkillsTrack — Assessor Summary</h2>
 
       <section class="banner">
         <div>
-          <h2>Welcome back, <span id="welcomeName">...</span> 👋</h2>
-          <small>Last login: <span id="lastLogin">—</span> • <span id="reviewsDue">0</span> reviews awaiting you</small>
+          <h2>Welcome, <span id="welcomeName">…</span> 👋</h2>
+          <small>Last login: <span id="lastLogin">—</span> &nbsp;•&nbsp; <span id="reviewsDue">0</span> submissions awaiting review</small>
         </div>
-        <span class="pill-active">Portal Active</span>
+        <span class="pill-active">Assessor Portal</span>
       </section>
 
       <section class="stats">
-        <div class="stat"><div class="num" id="statLearners">0</div><div class="label">Learners</div></div>
+        <div class="stat"><div class="num"        id="statLearners">0</div><div class="label">Total Learners</div></div>
+        <div class="stat"><div class="num amber"  id="statSessions">0</div><div class="label">Active Sessions</div></div>
         <div class="stat"><div class="num purple" id="statPending">0</div><div class="label">Pending Reviews</div></div>
-        <div class="stat"><div class="num green" id="statReviewed">0</div><div class="label">Reviewed</div></div>
+        <div class="stat"><div class="num green"  id="statReviewed">0</div><div class="label">Reviewed</div></div>
       </section>
 
       <section class="panels">
         <div class="panel">
           <h4>Recent Submissions</h4>
-          <div id="reviewList"><p class="empty">No submissions yet.</p></div>
+          <div id="reviewList"><p class="empty">Loading…</p></div>
         </div>
 
         <div class="panel">
-          <h4>Upcoming Session</h4>
+          <h4>Next Session</h4>
           <div id="sessionBox">
-            <div class="booking-title">No upcoming session</div>
+            <div class="booking-title">No upcoming sessions</div>
             <div class="booking-meta">—</div>
           </div>
           <div class="panel-spacer"></div>
@@ -73,60 +75,6 @@
     </div>
   </main>
 
-  <script type="module">
-    import { requireRole } from "./auth.js";
-    requireRole("assessor");
-
-    // ---------- Render helpers (call these once you load data from Firestore) ----------
-    const $ = (id) => document.getElementById(id);
-
-    function renderStats(learners, pending, reviewed) {
-      $("statLearners").textContent = learners;
-      $("statPending").textContent = pending;
-      $("statReviewed").textContent = reviewed;
-      $("reviewsDue").textContent = pending;
-    }
-
-    // reviews = [{ learner: "Alex Morgan", task: "Login form", status: "pending" | "reviewed" }]
-    function renderReviews(reviews) {
-      if (!reviews.length) return;
-      $("reviewList").replaceChildren(...reviews.map((r) => {
-        const row = document.createElement("div");
-        row.className = "task " + r.status;
-        const name = document.createElement("span");
-        name.textContent = r.learner + " – " + r.task;
-        const badge = document.createElement("span");
-        badge.className = "badge " + r.status;
-        badge.textContent = r.status === "reviewed" ? "Reviewed" : "Pending";
-        row.append(name, badge);
-        return row;
-      }));
-    }
-
-    function renderSession(title, when) {
-      $("sessionBox").querySelector(".booking-title").textContent = title;
-      $("sessionBox").querySelector(".booking-meta").textContent = when;
-    }
-
-    // Everything starts at zero. Add ?demo to the URL to preview sample data.
-    if (new URLSearchParams(location.search).has("demo")) {
-      renderStats(12, 4, 8);
-      renderReviews([
-        { learner: "Alex Morgan", task: "Login form validation", status: "pending" },
-        { learner: "Sam Naidoo",  task: "Project documentation", status: "reviewed" }
-      ]);
-      renderSession("Code Architecture Review", "Aug 12, 2026 • 14:00");
-    }
-
-    // ---------- Theme toggle (remembered in this browser) ----------
-    try { if (localStorage.getItem("theme") === "light") document.body.classList.add("light"); } catch {}
-    $("themeBtn").addEventListener("click", () => {
-      const light = document.body.classList.toggle("light");
-      try { localStorage.setItem("theme", light ? "light" : "dark"); } catch {}
-    });
-
-    // ---------- Print Summary PDF (choose "Save as PDF" in the print window) ----------
-    $("printBtn").addEventListener("click", () => window.print());
-  </script>
+  <script type="module" src="./assessor-overview.js"></script>
 </body>
 </html>

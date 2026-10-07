@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assessor Login</title>
+  <title>SkillsTrack — Assessor Sign In</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -12,34 +12,35 @@
     <div class="glow-card">
       <div class="glow-inner">
 
-        <div style="text-align:center">
-          <span class="badge-role assessor">ASSESSOR PORTAL</span>
+        <div class="role-tabs">
+          <button class="role-tab"        onclick="location.href='learner-login.html'">Learner</button>
+          <button class="role-tab active">Assessor / Facilitator</button>
         </div>
 
-        <div class="form-title">ASSESSOR LOGIN</div>
+        <div class="form-title">Welcome Back</div>
+        <p class="form-sub">Sign in to manage learners &amp; sessions</p>
 
         <form id="loginForm">
           <div class="input-group">
             <i class="fa-regular fa-envelope"></i>
-            <input id="as_user" type="email" placeholder="Enter Email" autocomplete="username" required>
+            <input id="as_user" type="email" placeholder="Email address" autocomplete="username" required>
           </div>
 
           <div class="input-group">
             <i class="fa-solid fa-lock"></i>
-            <input id="as_pass" type="password" placeholder="Enter Password" autocomplete="current-password" required>
+            <input id="as_pass" type="password" placeholder="Password" autocomplete="current-password" required>
           </div>
 
           <div id="as_err" class="error"></div>
-          <div id="as_ok" class="success"></div>
+          <div id="as_ok"  class="success"></div>
 
-          <button class="btn-glow" type="submit">Sign In as Assessor</button>
+          <button class="btn-glow" type="submit">Sign In to Assessor Portal</button>
 
-          <div class="form-links">
-            <a href="learner-login.html">Learner Login?</a>
-            <a href="signup.html">Create Account</a>
-          </div>
-          <div class="form-links" style="justify-content:center">
+          <div class="form-links" style="justify-content:center; margin-top:16px;">
             <a href="forgot-password.html?role=assessor">Forgot password?</a>
+          </div>
+          <div class="form-links" style="justify-content:center; margin-top:8px;">
+            <a href="learner-login.html">Learner? Switch here</a>
           </div>
         </form>
 

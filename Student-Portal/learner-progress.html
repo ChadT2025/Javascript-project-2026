@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Progress</title>
+  <link rel="stylesheet" href="side-bar.css">
+  <style>
+.progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  margin-bottom: 6px;
+}
+
+.progress-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.progress-pct {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-light); 
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: var(--border);  
+  border-radius: 6px;
+  overflow: hidden;           
+  margin-bottom: 24px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;                
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 6px;
+  transition: width 0.5s;   
+}
+
+.badge.coding { border-color: #5b8def;            color: #6d9bf5;            background: rgba(91,141,239,.12);  }
+.badge.docs   { border-color: var(--teal);        color: var(--teal);        background: rgba(45,212,160,.1);   }
+.badge.design { border-color: var(--accent-light); color: var(--accent-light); background: rgba(167,139,250,.12); }
+.badge.devops { border-color: var(--amber);       color: var(--amber);       background: rgba(245,166,35,.12);  }
+.badge.other  { border-color: var(--text-muted);  color: var(--text-muted);  background: rgba(139,147,173,.1);  }
+
+table th {
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+}
+
+table td {
+  padding: 12px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+
+body.light .progress-track {
+  background: #e2e6f0; 
+}
+  </style>
+</head>
+<body style="visibility:hidden">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div><span class="name">SkillsTrack</span><span class="role">LEARNER</span></div>
+    </div>
+    <nav class="nav">
+      <a href="learner-dashboard.html">Dashboard</a>
+      <a href="learner-progress.html" class="active">Progress</a>
+      <a href="learner-tasks.html">Tasks</a>
+      <a href="booking.html">Booking</a>
+    </nav>
+    <div class="footer">
+      <strong id="footerName">Loading…</strong>
+      <a href="change-password.html">Change Password</a>
+      <a href="#" class="signout">⏻ Sign Out</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="topbar">
+      <h1>Progress</h1>
+      <div class="topbar-actions">
+        <button class="theme-btn" id="themeBtn">☾ Light</button>
+      </div>
+    </div>
+
+    <div class="page">
+      <section class="stats">
+        <div class="stat"><div class="num"        id="statTotal">0</div><div class="label">Total Tasks</div></div>
+        <div class="stat"><div class="num green"  id="statApproved">0</div><div class="label">Approved</div></div>
+        <div class="stat"><div class="num purple" id="statPct">0%</div><div class="label">Completion Rate</div></div>
+      </section>
+
+      <div class="panel">
+        <div class="progress-header">
+          <span class="progress-label">Overall Progress</span>
+          <span id="statPct2" style="font-size:13px;color:var(--accent-light);font-weight:600">0%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+
+        <h4>Completed Task History</h4>
+        <div class="table-wrap" style="margin-top:12px">
+          <table>
+            <thead>
+              <tr><th>Title</th><th>Category</th><th>Completed</th></tr>
+            </thead>
+            <tbody id="historyBody">
+              <tr><td colspan="3" class="empty-row">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./learner-progress.js"></script>
+  <script type="module">
+    // Keep the two percentage displays in sync
+    import { requireRole }         from "./auth.js";
+    import { listenToLearnerTasks} from "./tasks-data.js";
+    requireRole("learner").then(({ uid }) => {
+      listenToLearnerTasks(uid, (tasks) => {
+        const pct = tasks.length
+          ? Math.round((tasks.filter(t=>t.status==="approved").length / tasks.length)*100) : 0;
+        document.getElementById("statPct2").textContent = pct + "%";
+      });
+    });
+  </script>
+</body>
+</html>

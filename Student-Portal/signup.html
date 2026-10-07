@@ -3,49 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Create Account</title>
+  <title>SkillsTrack — Create Account</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .terms-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0 4px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .terms-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .terms-row a { color: var(--accent-light); }
+  </style>
 </head>
 <body>
   <div class="auth-wrap">
     <div class="glow-card">
       <div class="glow-inner">
 
-        <div class="form-title">CREATE ACCOUNT</div>
+        <!-- Role tabs -->
+        <div class="role-tabs">
+          <button class="role-tab active" id="tabLearner"  onclick="setRole('learner')">Learner</button>
+          <button class="role-tab"        id="tabAssessor" onclick="setRole('assessor')">Assessor / Facilitator</button>
+        </div>
+
+        <div class="form-title">Create Your Account</div>
+        <p class="form-sub">Sign up to start your learning portal</p>
 
         <form id="signupForm">
+          <input type="hidden" id="su_role" value="learner">
+
           <div class="input-group">
             <i class="fa-regular fa-user"></i>
-            <input id="su_name" placeholder="Full Name" autocomplete="name" required>
+            <input id="su_name" placeholder="Full name" autocomplete="name" required>
           </div>
 
           <div class="input-group">
             <i class="fa-regular fa-envelope"></i>
-            <input id="su_email" type="email" placeholder="Email" autocomplete="email" required>
+            <input id="su_email" type="email" placeholder="Email address" autocomplete="email" required>
           </div>
 
           <div class="input-group">
             <i class="fa-solid fa-lock"></i>
-            <input id="su_pass" type="password" placeholder="Password (min 6)" autocomplete="new-password" required>
+            <input id="su_pass" type="password" placeholder="Password (min 6 characters)" autocomplete="new-password" required>
           </div>
 
           <div class="input-group">
-            <i class="fa-solid fa-user-tag"></i>
-            <select id="su_role">
-              <option value="learner">Learner</option>
-              <option value="assessor">Assessor</option>
-            </select>
+            <i class="fa-solid fa-lock"></i>
+            <input id="su_conf" type="password" placeholder="Confirm password" autocomplete="new-password" required>
+          </div>
+
+          <div class="terms-row">
+            <input type="checkbox" id="su_terms" required>
+            <label for="su_terms">I agree to the <a href="#">Terms &amp; Privacy Policy</a></label>
           </div>
 
           <div id="su_err" class="error"></div>
-          <div id="su_ok" class="success"></div>
+          <div id="su_ok"  class="success"></div>
 
           <button class="btn-glow" type="submit">Create Account</button>
 
-          <div class="form-links">
-            <a href="learner-login.html">Learner Login</a>
-            <a href="assessor-login.html">Assessor Login</a>
+          <div class="form-links" style="justify-content:center; margin-top:14px;">
+            <a href="learner-login.html">Already have an account? Sign in</a>
           </div>
         </form>
 
@@ -55,6 +82,13 @@
 
   <script type="module">
     import { initSignupForm } from "./auth.js";
+
+    window.setRole = function(role) {
+      document.getElementById("su_role").value = role;
+      document.getElementById("tabLearner").classList.toggle("active",  role === "learner");
+      document.getElementById("tabAssessor").classList.toggle("active", role === "assessor");
+    };
+
     initSignupForm();
   </script>
 </body>
