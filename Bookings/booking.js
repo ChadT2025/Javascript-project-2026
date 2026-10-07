@@ -59,7 +59,6 @@ async function loadAvailableSlots() {
 
 // This Runs when the confirm button is clicked
 async function handleBookingSubmit() {
-  // Validation
   if (slots.length === 0) {
     alert("No slots available.");
 
