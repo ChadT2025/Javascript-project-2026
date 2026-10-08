@@ -22,7 +22,7 @@ async function loadReviews() {
 
   for (const docSnap of snapshot.docs) {
     const booking = docSnap.data();
-    // Save the document ID so we can update it later
+    // Save the Doc
     booking.id = docSnap.id;
     bookings.push(booking);
   }

@@ -1,16 +1,31 @@
 import { auth, db } from "./firebase.js";
 import {
-  createUserWithEmailAndPassword, signInWithEmailAndPassword,
-  signOut, onAuthStateChanged, updateProfile,
-  sendPasswordResetEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  updateProfile,
+  sendPasswordResetEmail,
+  updatePassword,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
-  doc, setDoc, getDoc, serverTimestamp
+  doc,
+  setDoc,
+  getDoc,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // Where each role goes after login / when not logged in
-export const HOME  = { learner: "learner-dashboard.html", assessor: "assessor-overview.html" };
-export const LOGIN = { learner: "learner-login.html",     assessor: "assessor-login.html" };
+export const HOME = {
+  learner: "learner-dashboard.html",
+  assessor: "../Assesor Landing Page/index.html",
+};
+export const LOGIN = {
+  learner: "learner-login.html",
+  assessor: "assessor-login.html",
+};
 
 // ---------- UI helpers ----------
 export function showMsg(id, text, isError = true) {
@@ -31,7 +46,7 @@ export function friendlyError(err) {
     "auth/network-request-failed": "Network error. Check your connection",
     "auth/wrong-password": "Current password is incorrect",
     "auth/requires-recent-login": "Please log in again, then retry",
-    "permission-denied": "Database permission denied (check Firestore rules)"
+    "permission-denied": "Database permission denied (check Firestore rules)",
   };
   return map[err.code] || err.message;
 }
@@ -41,7 +56,10 @@ export async function signUp(name, email, password, role) {
   const cred = await createUserWithEmailAndPassword(auth, email, password);
   await updateProfile(cred.user, { displayName: name });
   await setDoc(doc(db, "users", cred.user.uid), {
-    name, email, role, createdAt: serverTimestamp()
+    name,
+    email,
+    role,
+    createdAt: serverTimestamp(),
   });
   return role;
 }
@@ -53,7 +71,9 @@ export async function login(email, password, expectedRole) {
 
   if (role !== expectedRole) {
     await signOut(auth);
-    throw new Error(`This is not ${expectedRole === "assessor" ? "an assessor" : "a learner"} account`);
+    throw new Error(
+      `This is not ${expectedRole === "assessor" ? "an assessor" : "a learner"} account`
+    );
   }
   return role;
 }
@@ -72,14 +92,17 @@ export async function changePassword(currentPassword, newPassword) {
   const user = auth.currentUser;
   if (!user) throw new Error("Not logged in");
   const cred = EmailAuthProvider.credential(user.email, currentPassword);
-  await reauthenticateWithCredential(user, cred);   // confirms the old password
+  await reauthenticateWithCredential(user, cred); // confirms the old password
   await updatePassword(user, newPassword);
 }
 
 function formatLastLogin(timeString) {
   if (!timeString) return "Today";
   const date = new Date(timeString);
-  const time = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  const time = date.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   return date.toDateString() === new Date().toDateString()
     ? "Today at " + time
     : date.toLocaleDateString() + " at " + time;
@@ -88,16 +111,29 @@ function formatLastLogin(timeString) {
 // ---------- Protect a dashboard page ----------
 export function requireRole(expectedRole) {
   onAuthStateChanged(auth, async (user) => {
-    if (!user) { location.href = LOGIN[expectedRole]; return; }
+    if (!user) {
+      location.href = LOGIN[expectedRole];
+      return;
+    }
 
     try {
       const snap = await getDoc(doc(db, "users", user.uid));
       const data = snap.data();
 
-      if (!data) { await signOut(auth); location.href = LOGIN[expectedRole]; return; }
-      if (data.role !== expectedRole) { location.href = HOME[data.role]; return; }
+      if (!data) {
+        await signOut(auth);
+        location.href = LOGIN[expectedRole];
+        return;
+      }
+      if (data.role !== expectedRole) {
+        location.href = HOME[data.role];
+        return;
+      }
 
-      const set = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+      const set = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+      };
       set("footerName", data.name);
       set("welcomeName", data.name);
       set("lastLogin", formatLastLogin(user.metadata.lastSignInTime));
@@ -122,7 +158,7 @@ export function initLoginForm(role) {
     e.preventDefault();
     const btn = form.querySelector("button");
     const email = document.getElementById("as_user").value.trim().toLowerCase();
-    const pass  = document.getElementById("as_pass").value;
+    const pass = document.getElementById("as_pass").value;
     btn.disabled = true;
     try {
       await login(email, pass, role);
@@ -140,10 +176,13 @@ export function initSignupForm() {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const btn = form.querySelector("button");
-    const name  = document.getElementById("su_name").value.trim();
-    const email = document.getElementById("su_email").value.trim().toLowerCase();
-    const pass  = document.getElementById("su_pass").value;
-    const role  = document.getElementById("su_role").value;
+    const name = document.getElementById("su_name").value.trim();
+    const email = document
+      .getElementById("su_email")
+      .value.trim()
+      .toLowerCase();
+    const pass = document.getElementById("su_pass").value;
+    const role = document.getElementById("su_role").value;
 
     if (!name || !email || !pass) return showMsg("su_err", "Fill all fields");
 
@@ -159,20 +198,29 @@ export function initSignupForm() {
   });
 }
 
-
 export function initForgotForm() {
-  const role = new URLSearchParams(location.search).get("role") === "assessor" ? "assessor" : "learner";
+  const role =
+    new URLSearchParams(location.search).get("role") === "assessor"
+      ? "assessor"
+      : "learner";
   document.getElementById("backLink").href = LOGIN[role];
 
   const form = document.getElementById("forgotForm");
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const btn = form.querySelector("button");
-    const email = document.getElementById("fp_email").value.trim().toLowerCase();
+    const email = document
+      .getElementById("fp_email")
+      .value.trim()
+      .toLowerCase();
     btn.disabled = true;
     try {
       await resetPassword(email);
-      showMsg("fp_ok", "If that email is registered, a reset link has been sent.", false);
+      showMsg(
+        "fp_ok",
+        "If that email is registered, a reset link has been sent.",
+        false
+      );
     } catch (err) {
       showMsg("fp_err", friendlyError(err));
     }
@@ -182,7 +230,10 @@ export function initForgotForm() {
 
 export function initChangePasswordForm() {
   onAuthStateChanged(auth, async (user) => {
-    if (!user) { location.href = LOGIN.learner; return; }
+    if (!user) {
+      location.href = LOGIN.learner;
+      return;
+    }
     const snap = await getDoc(doc(db, "users", user.uid));
     const role = snap.exists() ? snap.data().role : "learner";
     document.getElementById("backLink").href = HOME[role];
