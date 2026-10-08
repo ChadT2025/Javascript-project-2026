@@ -19,7 +19,7 @@ import {
 
 // Where each role goes after login / when not logged in
 export const HOME = {
-  learner: "learner-dashboard.html",
+  learner: "../Learner dashboard/learner.html",
   assessor: "../Assesor Landing Page/index.html",
 };
 export const LOGIN = {

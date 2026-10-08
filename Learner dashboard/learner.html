@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SkillsTrack Sidebar</title>
+    <link rel="stylesheet" href="../Placeholder/placeholder.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <span class="name">SkillsTrack</span>
+          <span class="role">LEARNER</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="" class="active">Dashboard</a>
+        <a href="">Progress</a>
+        <a href="">Tasks</a>
+        <a href="../Bookings/booking.html">Booking</a>
+        <a href="../Hangman/hangman.html">Hangman</a>
+      </nav>
+
+      <div class="footer">
+        <strong>Placeholder</strong>
+        <a href="" class="signout">⏻ Sign Out</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <h1>Learner Dashboard</h1>
+        <button class="theme-btn">◐ Theme</button>
+      </div>
+      <div class="page">
+        <div class="page">
+          <div class="welcome-card">
+            <div>
+              <p class="welcome-title">
+                Welcome back, <span id="welcomeName">Learner</span>
+              </p>
+              <p class="welcome-text" id="welcomeText">
+                Are You Ready To Get Stuck In?
+              </p>
+            </div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <p class="stat-number" id="learnersCount">
+                Here we shape Futures Not just your Education
+              </p>
+              <img src="../Images/Media (2).jpg" class="teacher-img" />
+            </div>
+
+            <div class="stat-card">
+              <p class="stat-number" id="pendingCount">
+                QCTO Full stack developer Programme
+              </p>
+              <img src="../Images/Media.jpg" class="books-img" />
+            </div>
+
+            <div class="stat-card">
+              <p class="stat-number" id="reviewedCount">Ready Set Guess</p>
+              <img src="../Images/hangman_4.png" class="hangman" />
+              <a href="../Hangman/hangman.html"
+                ><p class="hangman-link">Click Me to test your knowledge!</p></a
+              >
+            </div>
+          </div>
+
+          <div class="bottom-row">
+            <div class="info-card session-card" id="sessionBox">
+              <p class="card-title">- Cary House</p>
+              <p class="booking-title">
+                "Code is Like humor. When You have To Explain It, it's bad."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
