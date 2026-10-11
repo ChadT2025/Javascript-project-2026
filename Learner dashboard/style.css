@@ -92,9 +92,8 @@ a {
 .teacher-img {
   display: block;
   width: 100%;
-  height: 210px;
-  object-fit: cover;
-  object-position: center;
+  height: 180px;
+  object-fit: contain;
   margin: 0 auto;
 }
 
