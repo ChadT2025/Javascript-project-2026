@@ -1,0 +1,154 @@
+body {
+  font-family: Arial;
+  color: white;
+  background: #0d1120;
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.sidebar {
+  background: #10162b;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 240px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #1f2740;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #1f2740;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  border-radius: 9px;
+  background: #7c5cff;
+}
+
+.brand .name {
+  display: block;
+  font-weight: bold;
+}
+.brand .role {
+  color: #7c5cff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 8px;
+  color: #8b93ad;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.nav a.active {
+  font-weight: normal;
+  background: rgba(124, 92, 255, 0.18);
+  color: white;
+}
+
+.nav :hover {
+  color: white;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 20px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #1f2740;
+  font-weight: normal;
+}
+
+.footer .signout {
+  color: #7c5cff;
+  text-decoration: none;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background: #0d1120;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #1f2740;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.theme-btn {
+  background-color: transparent;
+  color: white;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.page {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: #8b93ad;
+}
+
+/* Light theme for the placeholder-styled pages: invert the whole page, then
+   flip images back so photos keep their real colours. */
+html.inv-light { filter: invert(1) hue-rotate(180deg); background: #fff; }
+html.inv-light img { filter: invert(1) hue-rotate(180deg); }
+
+.footer a { color: #7c5cff; text-decoration: none; font-size: 13px; }
+.footer a:hover { color: white; }

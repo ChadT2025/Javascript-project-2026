@@ -1,0 +1,7 @@
+@import url("../shared/side-bar.css");
+
+/* Assessor learner table: the table, progress-bar and status styles come from side-bar.css */
+.learners-intro {
+  color: var(--text-muted);
+  font-size: 13px;
+}

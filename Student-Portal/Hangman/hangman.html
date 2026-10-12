@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hangman</title>
+    <link rel="stylesheet" href="../placeholder/placeholder.css" />
+    <link rel="stylesheet" href="./hangman.css" />
+  </head>
+  <body style="visibility:hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <span class="name">SkillsTrack</span>
+          <span class="role">LEARNER</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../learner-dashboard/learner.html">Dashboard</a>
+        <a href="../learner-progress/learner-progress.html">Progress</a>
+        <a href="../tasks/learner-tasks.html">Tasks</a>
+        <a href="../bookings/booking.html">Booking</a>
+        <a href="../Hangman/hangman.html" class="active">Hangman</a>
+      </nav>
+
+      <div class="footer">
+        <strong id="sidebarName">Loading…</strong>
+        <a href="../change-password/change-password.html">Change Password</a>
+        <a href="#" class="signout">⏻ Sign Out</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <h1>Hangman</h1>
+        <button class="theme-btn">◐ Theme</button>
+      </div>
+      <div class="page">
+        <div class="hangman-container">
+          <h1>Hangman</h1>
+
+          <img id="hangmanImg" src="../Images/hangman_0.png" alt="Hangman" />
+
+          <p id="wordDisplay"></p>
+          <p id="message"></p>
+          <p id="statsDisplay">Wins: 0 | Losses: 0</p>
+
+          <div id="keyboard"></div>
+
+          <button id="resetBtn" onclick="initGame()">Play Again</button>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./hangman.js"></script>
+    <script type="module" src="../placeholder/placeholder.js"></script>
+  </body>
+</html>

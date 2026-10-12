@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Progress</title>
+  <link rel="stylesheet" href="./learner-progress.css">
+</head>
+<body style="visibility:hidden">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div><span class="name">SkillsTrack</span><span class="role">LEARNER</span></div>
+    </div>
+    <nav class="nav">
+        <a href="../learner-dashboard/learner.html">Dashboard</a>
+        <a href="../learner-progress/learner-progress.html" class="active">Progress</a>
+        <a href="../tasks/learner-tasks.html">Tasks</a>
+        <a href="../bookings/booking.html">Booking</a>
+        <a href="../Hangman/hangman.html">Hangman</a>
+      </nav>
+    <div class="footer">
+        <strong id="footerName">Loading…</strong>
+        <a href="../change-password/change-password.html">Change Password</a>
+        <a href="#" class="signout">⏻ Sign Out</a>
+      </div>
+  </aside>
+
+  <main class="content">
+    <div class="topbar">
+      <h1>Progress</h1>
+      <div class="topbar-actions">
+        <button class="theme-btn" id="themeBtn">☾ Light</button>
+      </div>
+    </div>
+
+    <div class="page">
+      <section class="stats">
+        <div class="stat"><div class="num"        id="statTotal">0</div><div class="label">Total Tasks</div></div>
+        <div class="stat"><div class="num green"  id="statApproved">0</div><div class="label">Approved</div></div>
+        <div class="stat"><div class="num purple" id="statPct">0%</div><div class="label">Completion Rate</div></div>
+      </section>
+
+      <section class="stats">
+        <div class="stat"><div class="num amber"  id="statOpen">0</div><div class="label">Open (To Do / In Progress)</div></div>
+        <div class="stat"><div class="num"        id="statReview">0</div><div class="label">Awaiting Review</div></div>
+        <div class="stat"><div class="num red"    id="statRejected">0</div><div class="label">Needs Rework</div></div>
+      </section>
+
+      <div class="panel">
+        <div class="progress-header">
+          <span class="progress-label">Overall Progress</span>
+          <span id="statPct2" class="progress-pct">0%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+
+        <h4>Completed Task History</h4>
+        <div class="table-wrap" style="margin-top:12px">
+          <table>
+            <thead>
+              <tr><th>Title</th><th>Category</th><th>Completed</th></tr>
+            </thead>
+            <tbody id="historyBody">
+              <tr><td colspan="3" class="empty-row">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./learner-progress.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn()   { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+    function myRole()     { return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role; }
+    function isAssessor() { return signedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid)) && myRole() == 'assessor'; }
+    function isLearner()  { return signedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid)) && myRole() == 'learner'; }
+
+    // ── Users: everyone signed in can read profiles (needed for role checks and
+    //    the assessor's learner list). You can only create/edit your own profile.
+    match /users/{uid} {
+      allow read:   if signedIn();
+      allow create: if isOwner(uid)
+                    && request.resource.data.role in ['learner', 'assessor'];
+      // role can never be changed after sign-up
+      allow update: if isOwner(uid)
+                    && request.resource.data.role == resource.data.role;
+    }
+
+    // ── Tasks
+    match /tasks/{taskId} {
+      allow read:   if isAssessor() || (isLearner() && resource.data.uid == request.auth.uid);
+
+      // learners create their own tasks (always "pending"); assessors assign to anyone
+      allow create: if (isLearner()
+                        && request.resource.data.uid == request.auth.uid
+                        && request.resource.data.status == 'pending')
+                    || isAssessor();
+
+      // learners may only move their own task between pending / in-progress / submitted
+      // assessors may change anything (approve / reject)
+      allow update: if isAssessor()
+                    || (isLearner()
+                        && resource.data.uid == request.auth.uid
+                        && request.resource.data.uid == resource.data.uid
+                        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
+                        && request.resource.data.status in ['pending', 'in-progress', 'submitted']);
+
+      // learners may delete their own tasks, but not ones an assessor assigned
+      allow delete: if isAssessor()
+                    || (isLearner()
+                        && resource.data.uid == request.auth.uid
+                        && !('assignedBy' in resource.data));
+    }
+
+    // ── Session bookings
+    match /bookings/{id} {
+      allow read:   if isAssessor() || (isLearner() && resource.data.uid == request.auth.uid);
+      allow create: if isLearner()
+                    && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.status == 'pending';
+      allow update: if isAssessor();
+      allow delete: if isAssessor();
+    }
+
+    // ── Open slots: assessors manage them, learners can read and take one
+    match /availableSlots/{id} {
+      allow read:   if signedIn();
+      allow create: if isAssessor();
+      allow delete: if isAssessor() || isLearner();
+    }
+
+    // ── Hangman scores: each learner owns their own document
+    match /hangmanStats/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+  }
+}

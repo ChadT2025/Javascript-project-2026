@@ -1,0 +1,99 @@
+body {
+  font-family: Arial;
+  color: White;
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  flex: 1;
+  font-size: 30px;
+  color: White;
+}
+
+.slots-badge {
+  font-size: 11px;
+  font-family: Arial;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 10px;
+  border-radius: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: #e7e9f3;
+}
+
+.booking-card {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.select-label {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: white;
+}
+
+.select {
+  font-family: Arial;
+  font-size: 13px;
+  color: white;
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 18px;
+}
+
+input::placeholder {
+  color: white;
+}
+
+.select option {
+  background-color: #0d1120;
+  color: white;
+}
+
+.confirm-button {
+  font-family: Arial;
+  font-size: 15px;
+  color: white;
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #7c5cff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.my-bookings { margin-top: 20px; }
+.my-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #3a3560; font-weight: normal; font-size: 13px; }
+.my-empty { font-weight: normal; font-size: 13px; color: #8b93ad; margin: 0; }
+.my-status { text-transform: capitalize; font-weight: bold; }
+.my-status.confirmed { color: #34d399; }
+.my-status.rejected { color: #f87171; }
+.my-status.pending { color: #f5a623; }

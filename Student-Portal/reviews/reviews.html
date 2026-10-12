@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SkillsTrack — Session Reviews</title>
+    <link rel="stylesheet" href="./reviews.css" />
+    <link rel="stylesheet" href="../placeholder/placeholder.css" />
+  </head>
+  <body style="visibility:hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <span class="name">SkillsTrack</span>
+          <span class="role">ASSESOR</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../assesor-landing-page/index.html">Overview</a>
+        <a href="../learners-list/learners-list.html">Learners</a>
+        <a href="../assessor-tasks/assessor-tasks.html">Tasks</a>
+        <a href="../reviews/reviews.html" class="active">Reviews</a>
+        <a href="../schedule/schedule.html">Schedule</a>
+      </nav>
+
+      <div class="footer">
+        <strong id="sidebarName">Loading…</strong>
+        <a href="../change-password/change-password.html">Change Password</a>
+        <a href="#" class="signout">⏻ Sign Out</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <h1>Reviews</h1>
+        <button class="theme-btn">◐ Theme</button>
+      </div>
+      <div class="page">
+        <div class="reviews-container">
+          <div class="header">
+            <h1>Session Reviews</h1>
+            <p id="pendingBadge">Loading...</p>
+          </div>
+          <div id="reviewsList"></div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="reviews.js"></script>
+    <script type="module" src="../placeholder/placeholder.js"></script>
+  </body>
+</html>

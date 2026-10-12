@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Schedule</title>
+    <link rel="stylesheet" href="../placeholder/placeholder.css" />
+    <link rel="stylesheet" href="./schedule.css" />
+  </head>
+  <body style="visibility:hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <span class="name">SkillsTrack</span>
+          <span class="role">ASSESOR</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../assesor-landing-page/index.html">Overview</a>
+        <a href="../learners-list/learners-list.html">Learners</a>
+        <a href="../assessor-tasks/assessor-tasks.html">Tasks</a>
+        <a href="../reviews/reviews.html">Reviews</a>
+        <a href="../schedule/schedule.html" class="active">Schedule</a>
+      </nav>
+
+      <div class="footer">
+        <strong id="sidebarName">Loading…</strong>
+        <a href="../change-password/change-password.html">Change Password</a>
+        <a href="#" class="signout">⏻ Sign Out</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <h1>Assesor Schedule</h1>
+        <button class="theme-btn">◐ Theme</button>
+      </div>
+      <div class="page">
+        <div class="header">
+          <p class="title">Confirmed Sessions</p>
+
+          <p class="confirmed-badge" id="confirmedBadge">Loading...</p>
+        </div>
+
+        <div class="schedule-card slot-card">
+          <p class="slot-title">Open Booking Slots</p>
+          <form id="slotForm" class="slot-form">
+            <input type="date" id="slotDate" required />
+            <input type="time" id="slotTime" required />
+            <button type="submit" class="slot-add">Add Slot</button>
+          </form>
+          <div id="slotList"></div>
+        </div>
+
+        <div class="schedule-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Learner</th>
+                <th>Date</th>
+                <th>Session</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./schedule.js"></script>
+    <script type="module" src="../placeholder/placeholder.js"></script>
+  </body>
+</html>
