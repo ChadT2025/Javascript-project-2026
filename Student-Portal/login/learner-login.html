@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Sign In</title>
+  <link rel="stylesheet" href="./login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body data-role="learner">
+  <div class="auth-wrap">
+    <div class="glow-card">
+      <div class="glow-inner">
+        <a href="../landing-page/landing-page.html" style="display:inline-block;margin-bottom:14px;font-size:12px;color:var(--text-muted);text-decoration:none">← Back to home</a>
+
+        <div class="role-tabs">
+          <button type="button" class="role-tab active">Learner</button>
+          <button type="button" class="role-tab" onclick="location.href='./assessor-login.html'">Assessor / Facilitator</button>
+        </div>
+
+        <div class="form-title">Welcome Back</div>
+        <p class="form-sub">Sign in to access your learning portal</p>
+
+        <form id="loginForm">
+          <div class="input-group">
+            <i class="fa-regular fa-envelope"></i>
+            <input id="as_user" type="email" placeholder="Email address" autocomplete="username" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input id="as_pass" type="password" placeholder="Password" autocomplete="current-password" required>
+          </div>
+
+          <div id="as_err" class="error"></div>
+          <div id="as_ok"  class="success"></div>
+
+          <button class="btn-glow" type="submit">Sign In to Dashboard</button>
+
+          <div class="form-links" style="justify-content:center; margin-top:16px;">
+            <a href="../forgot-password/forgot-password.html?role=learner">Forgot password?</a>
+          </div>
+          <div class="form-links" style="justify-content:center; margin-top:8px;">
+            <a href="../signup/signup.html">Don't have an account? Sign up</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./login.js"></script>
+</body>
+</html>

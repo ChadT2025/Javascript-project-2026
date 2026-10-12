@@ -1,0 +1,98 @@
+.reviews-container {
+  font-family: Arial;
+  color: white;
+  max-width: 700px;
+  margin: 24px auto;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30px;
+  color: white;
+}
+
+/* The rounded "pill" badge */
+#pendingBadge {
+  margin: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 20px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: 12px;
+  color: white;
+}
+
+.review-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 6px;
+  padding-bottom: 14px;
+  padding-top: 14px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 12px;
+}
+
+.review-card p {
+  margin: 0;
+}
+
+.review-card p:first-child {
+  font-size: 15px;
+}
+
+.review-card p:nth-child(2) {
+  font-size: 12px;
+  color: white;
+}
+
+.review-card span {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 4px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  color: white;
+}
+
+.review-card button {
+  font-family: Arial;
+  font-size: 12px;
+  background-color: #0d1120;
+  color: white;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #7c5cff;
+  border-radius: 4px;
+  cursor: pointer;
+}

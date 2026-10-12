@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Learn. Track. Grow.</title>
+  <meta name="description" content="SkillsTrack is the learner and assessor portal for the QCTO Full Stack Developer programme.">
+  <link rel="stylesheet" href="./landing-page.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="logo" href="./landing-page.html"><span class="logo-icon">⚡</span> SkillsTrack</a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a class="btn btn-ghost" id="navLogin" href="../login/learner-login.html">Log in</a>
+      <a class="btn btn-solid" id="navSignup" href="../signup/signup.html">Sign up</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <span class="eyebrow">QCTO Full Stack Developer Programme</span>
+        <h1>Here we shape <span class="grad">futures</span>, not just your education.</h1>
+        <p class="lead">Plan your tasks, hand in your work, book support sessions and watch your progress grow &mdash; while assessors review, guide and track every learner in one place.</p>
+        <div class="cta">
+          <a class="btn btn-solid btn-lg" id="heroLearner" href="../login/learner-login.html">I'm a Learner</a>
+          <a class="btn btn-ghost btn-lg" id="heroAssessor" href="../login/assessor-login.html">I'm an Assessor</a>
+        </div>
+        <p class="small" id="authNote">New here? <a href="../signup/signup.html">Create your free account</a></p>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-card art-main"><img src="../Images/student-photo1.png" alt=""></div>
+        <div class="art-card art-books"><img src="../Images/Media.jpg" alt=""></div>
+        <div class="chip chip-a">✔ Task approved</div>
+        <div class="chip chip-b">50% complete</div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h2>Everything for the programme, in one portal</h2>
+      <div class="grid">
+        <article class="card"><div class="ico">✅</div><h3>Tasks</h3><p>Create tasks, start them and submit your work for review. Assessors can assign tasks too.</p></article>
+        <article class="card"><div class="ico">📈</div><h3>Progress tracking</h3><p>See your completion rate, what is awaiting review and your history of approved work.</p></article>
+        <article class="card"><div class="ico">📅</div><h3>Support bookings</h3><p>Book 1-on-1 code review, career advice or project planning sessions with your assessor.</p></article>
+        <article class="card"><div class="ico">🧠</div><h3>Hangman</h3><p>Take a break and test your coding vocabulary. Your wins are saved to your profile.</p></article>
+        <article class="card"><div class="ico">🧑‍🏫</div><h3>Assessor tools</h3><p>Review submissions, approve or reject, manage session slots and follow every learner.</p></article>
+        <article class="card"><div class="ico">🔒</div><h3>Secure access</h3><p>Separate learner and assessor logins with password reset and change-password built in.</p></article>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><span>1</span><div><h3>Create your account</h3><p>Sign up as a learner or an assessor in under a minute.</p></div></li>
+        <li><span>2</span><div><h3>Do the work</h3><p>Learners add and submit tasks; assessors assign tasks and open session slots.</p></div></li>
+        <li><span>3</span><div><h3>Get reviewed &amp; grow</h3><p>Assessors approve work and your progress updates instantly.</p></div></li>
+      </ol>
+      <div class="cta center">
+        <a class="btn btn-solid btn-lg" href="../signup/signup.html" id="bottomSignup">Get started</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year">2026</span> SkillsTrack &middot; Built for the QCTO Full Stack Developer Programme</p>
+  </footer>
+
+  <script type="module" src="./landing-page.js"></script>
+</body>
+</html>

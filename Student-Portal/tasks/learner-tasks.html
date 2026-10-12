@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Tasks</title>
+  <link rel="stylesheet" href="./learner-tasks.css">
+</head>
+<body style="visibility:hidden">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div><span class="name">SkillsTrack</span><span class="role">LEARNER</span></div>
+    </div>
+    <nav class="nav">
+        <a href="../learner-dashboard/learner.html">Dashboard</a>
+        <a href="../learner-progress/learner-progress.html">Progress</a>
+        <a href="../tasks/learner-tasks.html" class="active">Tasks</a>
+        <a href="../bookings/booking.html">Booking</a>
+        <a href="../Hangman/hangman.html">Hangman</a>
+      </nav>
+    <div class="footer">
+        <strong id="footerName">Loading…</strong>
+        <a href="../change-password/change-password.html">Change Password</a>
+        <a href="#" class="signout">⏻ Sign Out</a>
+      </div>
+  </aside>
+
+  <main class="content">
+    <div class="topbar">
+      <h1>Task Manager</h1>
+      <div class="topbar-actions">
+        <button class="btn-add" id="addTaskBtn">+ New Task</button>
+        <button class="theme-btn" id="themeBtn">☾ Light</button>
+      </div>
+    </div>
+
+    <div class="page">
+      <input class="search" id="filterInput" type="search" placeholder="Filter tasks…">
+      <div id="taskList"><p class="empty">Loading…</p></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="taskModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <h3>New Task</h3>
+      <form id="taskForm">
+        <div class="modal-field">
+          <label>Task title</label>
+          <input id="taskTitle" placeholder="e.g. Develop login form validation" required>
+        </div>
+        <div class="modal-field">
+          <label>Category</label>
+          <select id="taskCategory">
+            <option>Coding</option>
+            <option>Docs</option>
+            <option>Design</option>
+            <option>DevOps</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label>Priority</label>
+          <select id="taskPriority">
+            <option>High</option>
+            <option selected>Medium</option>
+            <option>Low</option>
+          </select>
+        </div>
+        <div id="taskFormErr" class="error"></div>
+        <button class="btn-modal-submit" type="submit">Add Task</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="./learner-tasks.js"></script>
+</body>
+</html>
