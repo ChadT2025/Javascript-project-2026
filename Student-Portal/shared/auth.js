@@ -28,7 +28,7 @@ export const LOGIN = {
   assessor: page("login/assessor-login.html"),
 };
 
-export function showMsg(id, text, isError = true) {
+export function showMsg(id, text) {
   const el = document.getElementById(id);
   if (!el) return;
   el.textContent = text;
@@ -181,7 +181,7 @@ export function initLoginForm(role) {
     btn.disabled = true;
     try {
       await login(email, pass, role);
-      showMsg("as_ok", "Welcome back!", false);
+      showMsg("as_ok", "Welcome back!");
       setTimeout(() => (location.href = HOME[role]), 700);
     } catch (err) {
       showMsg("as_err", friendlyError(err));
@@ -208,7 +208,7 @@ export function initSignupForm() {
     btn.disabled = true;
     try {
       await signUp(name, email, pass, role);
-      showMsg("su_ok", "Account created! Redirecting…", false);
+      showMsg("su_ok", "Account created! Redirecting…");
       setTimeout(() => (location.href = HOME[role]), 1000);
     } catch (err) {
       showMsg("su_err", friendlyError(err));
@@ -232,7 +232,7 @@ export function initForgotForm() {
     btn.disabled = true;
     try {
       await resetPassword(email);
-      showMsg("fp_ok", "If that email is registered, a reset link has been sent.", false);
+      showMsg("fp_ok", "If that email is registered, a reset link has been sent.");
     } catch (err) {
       showMsg("fp_err", friendlyError(err));
     }
@@ -260,7 +260,7 @@ export function initChangePasswordForm() {
     try {
       await changePassword(oldPw, newPw);
       form.reset();
-      showMsg("cp_ok", "Password updated successfully.", false);
+      showMsg("cp_ok", "Password updated successfully.");
     } catch (err) {
       showMsg("cp_err", friendlyError(err));
     }

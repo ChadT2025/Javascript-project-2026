@@ -5,7 +5,7 @@ const root = document.documentElement;
 
 try {
   if (localStorage.getItem("st-theme") === "light") root.classList.add("inv-light");
-} catch {}
+} catch { /* storage unavailable (private mode) - ignore */ }
 
 const btn = document.querySelector(".theme-btn");
 if (btn) {
@@ -14,7 +14,7 @@ if (btn) {
   label();
   btn.addEventListener("click", () => {
     const light = root.classList.toggle("inv-light");
-    try { localStorage.setItem("st-theme", light ? "light" : "dark"); } catch {}
+    try { localStorage.setItem("st-theme", light ? "light" : "dark"); } catch { /* storage unavailable (private mode) - ignore */ }
     label();
   });
 }
