@@ -41,7 +41,7 @@ h1 {
 
 .letter-btn:disabled {
   background-color: transparent;
-  color: white;
+  color: black;
 }
 
 #resetBtn {
