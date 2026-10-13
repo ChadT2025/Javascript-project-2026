@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Create Account</title>
+  <link rel="stylesheet" href="./signup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="glow-card">
+      <div class="glow-inner">
+        <a href="../landing-page/landing-page.html" style="display:inline-block;margin-bottom:14px;font-size:12px;color:var(--text-muted);text-decoration:none">← Back to home</a>
+
+        <!-- Role tabs -->
+        <div class="role-tabs">
+          <button type="button" class="role-tab active" id="tabLearner">Learner</button>
+          <button type="button" class="role-tab"        id="tabAssessor">Assessor / Facilitator</button>
+        </div>
+
+        <div class="form-title">Create Your Account</div>
+        <p class="form-sub">Sign up to start your learning portal</p>
+
+        <form id="signupForm">
+          <input type="hidden" id="su_role" value="learner">
+
+          <div class="input-group">
+            <i class="fa-regular fa-user"></i>
+            <input id="su_name" placeholder="Full name" autocomplete="name" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-regular fa-envelope"></i>
+            <input id="su_email" type="email" placeholder="Email address" autocomplete="email" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input id="su_pass" type="password" placeholder="Password (min 6 characters)" autocomplete="new-password" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input id="su_conf" type="password" placeholder="Confirm password" autocomplete="new-password" required>
+          </div>
+
+          <div class="terms-row">
+            <input type="checkbox" id="su_terms" required>
+            <label for="su_terms">I agree to the <a href="#">Terms &amp; Privacy Policy</a></label>
+          </div>
+
+          <div id="su_err" class="error"></div>
+          <div id="su_ok"  class="success"></div>
+
+          <button class="btn-glow" type="submit">Create Account</button>
+
+          <div class="form-links" style="justify-content:center; margin-top:14px;">
+            <a href="../login/learner-login.html">Already have an account? Sign in</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./signup.js"></script>
+</body>
+</html>

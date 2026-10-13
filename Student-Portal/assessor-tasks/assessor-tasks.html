@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillsTrack — Tasks</title>
+  <link rel="stylesheet" href="./assessor-tasks.css">
+</head>
+<body style="visibility:hidden">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div><span class="name">SkillsTrack</span><span class="role">ASSESSOR</span></div>
+    </div>
+    <nav class="nav">
+      <a href="../assesor-landing-page/index.html">Overview</a>
+      <a href="../learners-list/learners-list.html">Learners</a>
+      <a href="../assessor-tasks/assessor-tasks.html" class="active">Tasks</a>
+      <a href="../reviews/reviews.html">Reviews</a>
+      <a href="../schedule/schedule.html">Schedule</a>
+    </nav>
+    <div class="footer">
+      <strong id="footerName">Loading…</strong>
+      <a href="../change-password/change-password.html">Change Password</a>
+      <a href="#" class="signout">⏻ Sign Out</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="topbar">
+      <h1>Tasks &amp; Submissions</h1>
+      <div class="topbar-actions">
+        <button class="btn-add" id="addTaskBtn">+ Assign Task</button>
+        <button class="theme-btn" id="themeBtn">☾ Light</button>
+      </div>
+    </div>
+
+    <div class="page">
+      <section class="stats">
+        <div class="stat"><div class="num"        id="statTotal">0</div><div class="label">Total Tasks</div></div>
+        <div class="stat"><div class="num amber"  id="statReview">0</div><div class="label">Awaiting Review</div></div>
+        <div class="stat"><div class="num green"  id="statApproved">0</div><div class="label">Approved</div></div>
+      </section>
+
+      <div class="toolbar">
+        <input class="search" id="filterInput" type="search" placeholder="Search by task or learner…">
+        <select id="statusFilter">
+          <option value="">All statuses</option>
+          <option value="submitted">Awaiting review</option>
+          <option value="pending">Pending</option>
+          <option value="in-progress">In progress</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+
+      <div id="taskList"><p class="empty">Loading…</p></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="taskModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <h3>Assign New Task</h3>
+      <form id="taskForm">
+        <div class="modal-field">
+          <label>Learner</label>
+          <select id="taskLearner" required>
+            <option value="">Loading learners…</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label>Task title</label>
+          <input id="taskTitle" placeholder="e.g. Build the login page" required>
+        </div>
+        <div class="modal-field">
+          <label>Category</label>
+          <select id="taskCategory">
+            <option>Coding</option>
+            <option>Docs</option>
+            <option>Design</option>
+            <option>DevOps</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label>Priority</label>
+          <select id="taskPriority">
+            <option>High</option>
+            <option selected>Medium</option>
+            <option>Low</option>
+          </select>
+        </div>
+        <div id="taskFormErr" class="error"></div>
+        <button class="btn-modal-submit" type="submit">Assign Task</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="./assessor-tasks.js"></script>
+</body>
+</html>
