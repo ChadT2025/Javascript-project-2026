@@ -90,10 +90,34 @@ input::placeholder {
   transition: opacity 0.15s;
 }
 
-.my-bookings { margin-top: 20px; }
-.my-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #3a3560; font-weight: normal; font-size: 13px; }
-.my-empty { font-weight: normal; font-size: 13px; color: #8b93ad; margin: 0; }
-.my-status { text-transform: capitalize; font-weight: bold; }
-.my-status.confirmed { color: #34d399; }
-.my-status.rejected { color: #f87171; }
-.my-status.pending { color: #f5a623; }
+.my-bookings {
+  margin-top: 20px;
+}
+.my-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #3a3560;
+  font-weight: normal;
+  font-size: 13px;
+}
+.my-empty {
+  font-weight: normal;
+  font-size: 13px;
+  color: #8b93ad;
+  margin: 0;
+}
+.my-status {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.my-status.confirmed {
+  color: #34d399;
+}
+.my-status.rejected {
+  color: #f87171;
+}
+.my-status.pending {
+  color: #f5a623;
+}

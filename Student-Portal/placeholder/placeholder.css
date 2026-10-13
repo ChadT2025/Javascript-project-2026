@@ -147,8 +147,19 @@ body {
 
 /* Light theme for the placeholder-styled pages: invert the whole page, then
    flip images back so photos keep their real colours. */
-html.inv-light { filter: invert(1) hue-rotate(180deg); background: #fff; }
-html.inv-light img { filter: invert(1) hue-rotate(180deg); }
+html.inv-light {
+  filter: invert(1) hue-rotate(180deg);
+  background: #fff;
+}
+html.inv-light img {
+  filter: invert(1) hue-rotate(180deg);
+}
 
-.footer a { color: #7c5cff; text-decoration: none; font-size: 13px; }
-.footer a:hover { color: white; }
+.footer a {
+  color: #7c5cff;
+  text-decoration: none;
+  font-size: 13px;
+}
+.footer a:hover {
+  color: white;
+}

@@ -67,9 +67,20 @@ td {
   border-bottom-color: #3a3560;
 }
 
-.slot-card { margin-bottom: 20px; }
-.slot-title { font-size: 15px; margin: 0 0 10px; color: white; }
-.slot-form { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.slot-card {
+  margin-bottom: 20px;
+}
+.slot-title {
+  font-size: 15px;
+  margin: 0 0 10px;
+  color: white;
+}
+.slot-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
 .slot-form input {
   padding: 8px 10px;
   border-radius: 8px;
@@ -79,7 +90,8 @@ td {
   font-family: Arial;
   color-scheme: dark;
 }
-.slot-add, .slot-remove {
+.slot-add,
+.slot-remove {
   padding: 8px 16px;
   border-radius: 20px;
   border: 1px solid #7c5cff;
@@ -87,6 +99,23 @@ td {
   color: white;
   cursor: pointer;
 }
-.slot-remove { background: transparent; padding: 4px 12px; font-size: 12px; }
-.slot-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #3a3560; font-weight: normal; font-size: 13px; }
-.slot-empty { font-weight: normal; font-size: 13px; color: #8b93ad; margin: 0; }
+.slot-remove {
+  background: transparent;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+.slot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #3a3560;
+  font-weight: normal;
+  font-size: 13px;
+}
+.slot-empty {
+  font-weight: normal;
+  font-size: 13px;
+  color: #8b93ad;
+  margin: 0;
+}
