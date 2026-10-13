@@ -35,11 +35,31 @@
   transition: width 0.5s;
 }
 
-.badge.coding { border-color: #5b8def;             color: #6d9bf5;             background: rgba(91,141,239,.12);  }
-.badge.docs   { border-color: var(--teal);         color: var(--teal);         background: rgba(45,212,160,.1);   }
-.badge.design { border-color: var(--accent-light); color: var(--accent-light); background: rgba(167,139,250,.12); }
-.badge.devops { border-color: var(--amber);        color: var(--amber);        background: rgba(245,166,35,.12);  }
-.badge.other  { border-color: var(--text-muted);   color: var(--text-muted);   background: rgba(139,147,173,.1);  }
+.badge.coding {
+  border-color: #5b8def;
+  color: #6d9bf5;
+  background: rgba(91, 141, 239, 0.12);
+}
+.badge.docs {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: rgba(45, 212, 160, 0.1);
+}
+.badge.design {
+  border-color: var(--accent-light);
+  color: var(--accent-light);
+  background: rgba(167, 139, 250, 0.12);
+}
+.badge.devops {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: rgba(245, 166, 35, 0.12);
+}
+.badge.other {
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+  background: rgba(139, 147, 173, 0.1);
+}
 
 table th {
   padding: 11px 16px;

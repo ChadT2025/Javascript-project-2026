@@ -2,19 +2,25 @@ import { db } from "../shared/firebase.js";
 import { requireRole } from "../shared/auth.js";
 import { esc } from "../shared/util.js";
 import {
-  collection, getDocs, addDoc, deleteDoc, doc,
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const tableBody      = document.querySelector("#scheduleBody");
+const tableBody = document.querySelector("#scheduleBody");
 const confirmedBadge = document.querySelector("#confirmedBadge");
-const slotList       = document.querySelector("#slotList");
-const slotForm       = document.querySelector("#slotForm");
+const slotList = document.querySelector("#slotList");
+const slotForm = document.querySelector("#slotForm");
 
 async function loadSchedule() {
   const snapshot = await getDocs(collection(db, "bookings"));
   const bookings = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
 
-  const confirmedCount = bookings.filter((b) => b.status === "confirmed").length;
+  const confirmedCount = bookings.filter(
+    (b) => b.status === "confirmed"
+  ).length;
   confirmedBadge.innerText = `${confirmedCount} Confirmed`;
 
   if (bookings.length === 0) {
@@ -22,18 +28,22 @@ async function loadSchedule() {
     return;
   }
 
-  tableBody.innerHTML = bookings.map((b) => `
+  tableBody.innerHTML = bookings
+    .map(
+      (b) => `
     <tr>
       <td>${esc(b.learnerName || "You")}</td>
       <td>${esc(b.date)}</td>
       <td>${esc(b.sessionType || b.topic)}</td>
       <td>${esc(b.status)}</td>
-    </tr>`).join("");
+    </tr>`
+    )
+    .join("");
 }
 
 // Open slots that learners can book from the Booking page
 async function loadSlots() {
-  const snap  = await getDocs(collection(db, "availableSlots"));
+  const snap = await getDocs(collection(db, "availableSlots"));
   const slots = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
 
   if (slots.length === 0) {
@@ -41,17 +51,22 @@ async function loadSlots() {
     return;
   }
 
-  slotList.innerHTML = slots.map((s) => `
+  slotList.innerHTML = slots
+    .map(
+      (s) => `
     <div class="slot-row">
       <span>${esc(s.date)} at ${esc(s.time)}</span>
       <button class="slot-remove" data-id="${esc(s.id)}">Remove</button>
-    </div>`).join("");
+    </div>`
+    )
+    .join("");
 
   slotList.querySelectorAll(".slot-remove").forEach((btn) =>
     btn.addEventListener("click", async () => {
       await deleteDoc(doc(db, "availableSlots", btn.dataset.id));
       loadSlots();
-    }));
+    })
+  );
 }
 
 slotForm.addEventListener("submit", async (e) => {
@@ -64,7 +79,9 @@ slotForm.addEventListener("submit", async (e) => {
   loadSlots();
 });
 
-requireRole("assessor").then(() => {
-  loadSchedule();
-  loadSlots();
-}).catch(console.error);
+requireRole("assessor")
+  .then(() => {
+    loadSchedule();
+    loadSlots();
+  })
+  .catch(console.error);

@@ -105,7 +105,9 @@ async function handleBookingSubmit() {
 // Lists this learner's own bookings and their status
 async function loadMyBookings() {
   const list = document.querySelector("#myBookings");
-  const snap = await getDocs(query(collection(db, "bookings"), where("uid", "==", me.uid)));
+  const snap = await getDocs(
+    query(collection(db, "bookings"), where("uid", "==", me.uid))
+  );
 
   if (snap.empty) {
     list.innerHTML = `<p class="my-empty">You have no bookings yet.</p>`;
@@ -114,11 +116,13 @@ async function loadMyBookings() {
 
   list.innerHTML = snap.docs
     .map((d) => d.data())
-    .map((b) => `
+    .map(
+      (b) => `
       <div class="my-row">
         <span>${esc(b.topic)} — ${esc(b.date)}</span>
         <span class="my-status ${esc(b.status)}">${esc(b.status)}</span>
-      </div>`)
+      </div>`
+    )
     .join("");
 }
 
@@ -126,9 +130,11 @@ async function loadMyBookings() {
 window.handleBookingSubmit = handleBookingSubmit;
 
 // Only signed-in learners may book
-requireRole("learner").then((user) => {
-  me = user;
-  nameInput.value = user.name || "";
-  loadAvailableSlots();
-  loadMyBookings();
-}).catch(console.error);
+requireRole("learner")
+  .then((user) => {
+    me = user;
+    nameInput.value = user.name || "";
+    loadAvailableSlots();
+    loadMyBookings();
+  })
+  .catch(console.error);

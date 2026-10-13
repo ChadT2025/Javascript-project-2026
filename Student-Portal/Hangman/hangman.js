@@ -164,9 +164,11 @@ async function saveResult(result) {
 window.initGame = initGame;
 
 // Only signed-in learners can play (their score is saved to their account)
-requireRole("learner").then((user) => {
-  currentUser = user;
-  return loadStats();
-}).catch(console.error);
+requireRole("learner")
+  .then((user) => {
+    currentUser = user;
+    return loadStats();
+  })
+  .catch(console.error);
 
 initGame();
